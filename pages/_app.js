@@ -1,4 +1,5 @@
-import "@/styles/globals.css";
+import "@/styles/reset.css";
+import "@/styles/base.css";
 
 import { Montserrat } from "@next/font/google";
 
