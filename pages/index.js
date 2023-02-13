@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Article from "@/components/common/article/Article";
 import getArticles from "@/lib/mock/articles";
-import HomeSection from "@/components/home/HomeSection";
+import HomePage from "@/components/home/Home";
 
 const articles = getArticles();
 
@@ -18,23 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ display: "flex", flexDirection: "column", gap: 100 }}>
-        <HomeSection isFeatured>
-          <h1>Nathanel Corpuz Blog</h1>
-          <Article article={articles.featured} />
-        </HomeSection>
-        <HomeSection>
-          <h2>Latest</h2>
-          {articles.latest.map((article) => (
-            <Article key={article.id} article={article} />
-          ))}
-        </HomeSection>
-        <HomeSection>
-          <h2>All</h2>
-          {articles.all.map((article) => (
-            <Article key={article.id} article={article} />
-          ))}
-          <button>Show more</button>
-        </HomeSection>
+        <HomePage />
       </main>
     </>
   );

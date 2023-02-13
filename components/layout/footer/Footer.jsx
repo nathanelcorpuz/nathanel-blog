@@ -34,7 +34,9 @@ export default function Footer() {
         </nav>
       </div>
       <form className={styles.newsletter}>
-        <label for="email">Get more simplified content about websites</label>
+        <label htmlFor="email">
+          Get more simplified content about websites
+        </label>
         <fieldset>
           <input
             name="email"
@@ -43,7 +45,7 @@ export default function Footer() {
             placeholder="Your email..."
           />
           <button>
-            <Image src={sendIcon} />
+            <Image alt="send button icon" src={sendIcon} />
           </button>
         </fieldset>
         <small>No spam. Unsubscribe anytime.</small>
@@ -85,7 +87,7 @@ export default function Footer() {
             rel="noreferrer"
             target="_blank"
           >
-            <Image src={linkedin} width={50} alt="twitter logo" />
+            <Image src={linkedin} width={50} alt="linkedin logo" />
           </a>
         </div>
       </aside>

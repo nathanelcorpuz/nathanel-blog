@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Image src={logo} alt="logo graphics of nathanel corpuz" width={40} />
+      <Image src={logo} alt="nathanel corpuz logo" width={40} />
       <button
         aria-label="button"
         aria-roledescription="button"
