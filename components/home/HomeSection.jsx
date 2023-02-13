@@ -5,7 +5,7 @@ export default function HomeSection({ isFeatured, children }) {
         display: "flex",
         flexDirection: "column",
         padding: 20,
-        gap: isFeatured ? 20 : 50,
+        gap: isFeatured ? 20 : 75,
       }}
     >
       {children}

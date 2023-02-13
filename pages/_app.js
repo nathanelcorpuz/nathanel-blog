@@ -2,8 +2,9 @@ import "@/styles/reset.css";
 import "@/styles/base.css";
 
 import { Montserrat } from "@next/font/google";
+import Layout from "@/components/layout/Layout";
 
-const montserrat = Montserrat({ subsets: ['latin'] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }) {
   return (
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }) {
           font-family: ${montserrat.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
