@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-import logo from "@/public/nathanel-corpuz-logo.png";
 import logoDark from "@/public/nathanel-corpuz-logo-dark.png";
 import twitter from "@/public/twitter.png";
 import linkedin from "@/public/linkedin.png";
 import Article from "@/components/article/Article";
 import getArticles from "@/lib/mock/articles";
 import getFooterLinks from "@/lib/mock/footer";
+import Header from "@/components/layout/header/Header";
 
 const articles = getArticles();
 
@@ -24,10 +24,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <Image src={logo} alt="logo graphics of nathanel corpuz" width={50} />
-        <button>menu</button>
-      </header>
+      <Header />
       <main>
         <h1>Nathanel Corpuz Blog</h1>
         <section>
