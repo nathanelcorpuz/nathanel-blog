@@ -4,6 +4,8 @@ import getFooterLinks from "@/lib/links/footer";
 import Image from "next/image";
 import sendIcon from "@/public/send-icon.png";
 import Socials from "@/components/common/socials/Socials";
+import Link from "next/link";
+import CustomLink from "@/components/common/custom-link/CustomLink";
 
 const footerLinks = getFooterLinks();
 
@@ -16,7 +18,7 @@ export default function Footer() {
           <ul>
             {footerLinks.main.links.map((link) => (
               <li key={link.pathname + link.title}>
-                <a href="#">{link.title}</a>
+                <CustomLink link={link} />
               </li>
             ))}
           </ul>
@@ -26,7 +28,7 @@ export default function Footer() {
           <ul>
             {footerLinks.categories.links.map((link) => (
               <li key={link.pathname + link.title}>
-                <a href="#">{link.title}</a>
+                <CustomLink link={link} />
               </li>
             ))}
           </ul>

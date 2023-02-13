@@ -1,3 +1,4 @@
+import CustomLink from "@/components/common/custom-link/CustomLink";
 import Socials from "@/components/common/socials/Socials";
 import getHeaderLinks from "@/lib/links/header";
 import searchIcon from "@/public/search-icon.png";
@@ -37,24 +38,7 @@ export default function Nav() {
           <ul>
             {headerLinks.main.map((link) => (
               <li key={link.pathname + link.hash + link.title}>
-                {link.externalUrl ? (
-                  <a
-                    href={link.externalUrl + link.pathname + link.hash}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {link.title}
-                  </a>
-                ) : (
-                  <Link
-                    scroll={!link.hash}
-                    href={
-                      link.hash ? `${link.pathname}${link.hash}` : link.pathname
-                    }
-                  >
-                    {link.title}
-                  </Link>
-                )}
+                <CustomLink link={link} />
               </li>
             ))}
           </ul>

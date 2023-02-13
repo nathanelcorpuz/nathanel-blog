@@ -1,9 +1,5 @@
 import Head from "next/head";
-import Article from "@/components/common/article/Article";
-import getArticles from "@/lib/mock/articles";
 import HomePage from "@/components/home/Home";
-
-const articles = getArticles();
 
 export default function Home() {
   return (
