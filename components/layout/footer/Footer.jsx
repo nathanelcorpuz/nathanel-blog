@@ -1,10 +1,9 @@
 import styles from "./Footer.module.css";
 import logoDark from "@/public/nathanel-corpuz-logo-dark.png";
-import twitter from "@/public/twitter.png";
-import linkedin from "@/public/linkedin.png";
-import getFooterLinks from "@/lib/mock/footer";
+import getFooterLinks from "@/lib/links/footer";
 import Image from "next/image";
 import sendIcon from "@/public/send-icon.png";
+import Socials from "@/components/common/socials/Socials";
 
 const footerLinks = getFooterLinks();
 
@@ -74,22 +73,7 @@ export default function Footer() {
       </aside>
       <aside className={styles.copyright}>
         <small>Nathanel Corpuz &copy; 2023</small>
-        <div className={styles.socials}>
-          <a
-            href="https://twitter.com/nathanelcorpuz"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Image src={twitter} width={50} alt="twitter logo" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/nathanelcorpuz/"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Image src={linkedin} width={50} alt="linkedin logo" />
-          </a>
-        </div>
+        <Socials isDark />
       </aside>
     </footer>
   );

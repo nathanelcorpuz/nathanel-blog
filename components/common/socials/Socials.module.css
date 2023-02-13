@@ -1,0 +1,15 @@
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+}
+
+.socials img {
+  padding: 2px;
+  width: 23px;
+  height: auto;
+}
