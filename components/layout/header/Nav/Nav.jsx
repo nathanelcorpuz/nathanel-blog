@@ -3,7 +3,6 @@ import Socials from "@/components/common/socials/Socials";
 import getHeaderLinks from "@/lib/links/header";
 import searchIcon from "@/public/search-icon.png";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import styles from "./Nav.module.css";
 
@@ -37,7 +36,10 @@ export default function Nav() {
         <nav>
           <ul>
             {headerLinks.main.map((link) => (
-              <li key={link.pathname + link.hash + link.title}>
+              <li
+                key={link.pathname + link.hash + link.title}
+                onClick={() => setIsOpen(false)}
+              >
                 <CustomLink link={link} />
               </li>
             ))}

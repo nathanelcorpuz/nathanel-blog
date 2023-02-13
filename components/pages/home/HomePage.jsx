@@ -1,10 +1,10 @@
 import getArticles from "@/lib/mock/articles";
-import Article from "../common/article/Article";
+import Article from "../../common/article/Article";
 import HomeSection from "./HomeSection";
 
 const articles = getArticles();
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <HomeSection isFeatured>
