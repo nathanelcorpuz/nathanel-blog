@@ -1,3 +1,4 @@
+import styles from "./Article.module.css";
 import Image from "next/image";
 
 export default function Article({ article }) {
@@ -12,15 +13,17 @@ export default function Article({ article }) {
     description,
   } = article;
   return (
-    <article>
-      <Image src={img} width="250" alt={alt} />
+    <article className={styles.article}>
+      <Image className={styles.cover} src={img} alt={alt} />
       <hgroup>
-        <div>
-          <p>{author}</p>
-          <time dateTime={dateTime}>{dateString}</time>
+        <div className={styles.author_date_container}>
+          <p className={styles.author}>{author}</p>
+          <time className={styles.publish_date} dateTime={dateTime}>
+            {dateString}
+          </time>
         </div>
         <h3>{title}</h3>
-        <div>
+        <div className={styles.tags_container}>
           {tags.map((tag) => (
             <p key={tag}>{tag}</p>
           ))}

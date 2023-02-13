@@ -1,0 +1,44 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article hgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.author_date_container {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.author,
+.publish_date {
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.author {
+  padding-right: 5px;
+  border-right: 1px solid gray;
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+}
+
+.tags_container {
+  display: flex;
+  gap: 10px;
+}
+
+.tags_container p {
+  opacity: 0.75;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}

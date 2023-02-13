@@ -3,10 +3,11 @@ import Image from "next/image";
 import logoDark from "@/public/nathanel-corpuz-logo-dark.png";
 import twitter from "@/public/twitter.png";
 import linkedin from "@/public/linkedin.png";
-import Article from "@/components/article/Article";
+import Article from "@/components/common/article/Article";
 import getArticles from "@/lib/mock/articles";
 import getFooterLinks from "@/lib/mock/footer";
 import Header from "@/components/layout/header/Header";
+import HomeSection from "@/components/home/HomeSection";
 
 const articles = getArticles();
 
@@ -25,24 +26,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>
-        <h1>Nathanel Corpuz Blog</h1>
-        <section>
+      <main style={{ display: "flex", flexDirection: "column", gap: 100 }}>
+        <HomeSection isFeatured>
+          <h1>Nathanel Corpuz Blog</h1>
           <Article article={articles.featured} />
-        </section>
-        <section>
+        </HomeSection>
+        <HomeSection>
           <h2>Latest</h2>
           {articles.latest.map((article) => (
             <Article key={article.id} article={article} />
           ))}
-        </section>
-        <section>
+        </HomeSection>
+        <HomeSection>
           <h2>All</h2>
           {articles.all.map((article) => (
             <Article key={article.id} article={article} />
           ))}
           <button>Show more</button>
-        </section>
+        </HomeSection>
       </main>
       <footer>
         <nav>
