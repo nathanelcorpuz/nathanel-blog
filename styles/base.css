@@ -27,8 +27,10 @@ h3 {
   font-size: 1.5rem;
 }
 
-h4 {
+h4,
+label {
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 @media (max-width: 1000px) {

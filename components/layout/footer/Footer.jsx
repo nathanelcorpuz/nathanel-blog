@@ -4,6 +4,7 @@ import twitter from "@/public/twitter.png";
 import linkedin from "@/public/linkedin.png";
 import getFooterLinks from "@/lib/mock/footer";
 import Image from "next/image";
+import sendIcon from "@/public/send-icon.png";
 
 const footerLinks = getFooterLinks();
 
@@ -32,30 +33,43 @@ export default function Footer() {
           </ul>
         </nav>
       </div>
-      <aside>
-        <h4>Get more content about websites from yours truly</h4>
-        <input placeholder="Your email..." />
-        <button>send</button>
+      <form className={styles.newsletter}>
+        <label for="email">Get more simplified content about websites</label>
+        <fieldset>
+          <input
+            name="email"
+            type="email"
+            id="email"
+            placeholder="Your email..."
+          />
+          <button>
+            <Image src={sendIcon} />
+          </button>
+        </fieldset>
         <small>No spam. Unsubscribe anytime.</small>
-        <a href="#">Terms & Conditions</a>
-      </aside>
-      <aside>
-        <Image
-          src={logoDark}
-          width={100}
-          alt="dark themed logo of nathanel corpuz"
-        />
+        <small>
+          <a href="#">Terms & Conditions</a>
+        </small>
+      </form>
+      <aside className={styles.profile}>
+        <header style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <Image
+            src={logoDark}
+            width={50}
+            alt="dark themed logo of nathanel corpuz"
+          />
+          <h4>Nathanel Corpuz</h4>
+        </header>
         <p>
           I design and develop highly customized websites for businesses,
           entrepreneurs, and professionals.
         </p>
         <address>
-          <a href="mailto:nathanelwebdesign@gmail.com">
+          <a className={styles.email} href="mailto:nathanelwebdesign@gmail.com">
             nathanelwebdesign@gmail.com
           </a>
         </address>
-        {/* socials */}
-        <div>
+        <div className={styles.socials}>
           <a
             href="https://twitter.com/nathanelcorpuz"
             rel="noreferrer"

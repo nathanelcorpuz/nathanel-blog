@@ -32,3 +32,52 @@
   padding: 10px 0;
   text-transform: capitalize;
 }
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newsletter fieldset {
+  border: none;
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter fieldset > * {
+  width: 100%;
+}
+
+.newsletter input {
+  border: 1px solid white;
+}
+
+.newsletter button {
+  border: 1px solid white;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email {
+    font-size: 0.9rem;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+}
+
+.socials img {
+    padding: 5px;
+    width: 30px;
+    height: auto;
+}
