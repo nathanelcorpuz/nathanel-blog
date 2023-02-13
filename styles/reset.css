@@ -18,9 +18,13 @@ address * {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
-button, input {
+button,
+input {
   font-family: inherit;
+}
+
+ul {
+  list-style-type: none;
 }

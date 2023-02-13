@@ -1,3 +1,4 @@
+import styles from "./Footer.module.css";
 import logoDark from "@/public/nathanel-corpuz-logo-dark.png";
 import twitter from "@/public/twitter.png";
 import linkedin from "@/public/linkedin.png";
@@ -8,23 +9,29 @@ const footerLinks = getFooterLinks();
 
 export default function Footer() {
   return (
-    <footer>
-      <nav>
-        <h4>{footerLinks.main.title}</h4>
-        <ul>
-          {footerLinks.main.links.map((link) => (
-            <li key={link.pathname + link.title}>{link.title}</li>
-          ))}
-        </ul>
-      </nav>
-      <nav>
-        <h4>{footerLinks.categories.title}</h4>
-        <ul>
-          {footerLinks.categories.links.map((link) => (
-            <li key={link.pathname + link.title}>{link.title}</li>
-          ))}
-        </ul>
-      </nav>
+    <footer className={styles.footer}>
+      <div className={styles.navs_container}>
+        <nav className={styles.nav}>
+          <h4>{footerLinks.main.title}</h4>
+          <ul>
+            {footerLinks.main.links.map((link) => (
+              <li key={link.pathname + link.title}>
+                <a href="#">{link.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav className={styles.nav}>
+          <h4>{footerLinks.categories.title}</h4>
+          <ul>
+            {footerLinks.categories.links.map((link) => (
+              <li key={link.pathname + link.title}>
+                <a href="#">{link.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
       <aside>
         <h4>Get more content about websites from yours truly</h4>
         <input placeholder="Your email..." />
