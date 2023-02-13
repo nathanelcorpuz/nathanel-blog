@@ -31,6 +31,7 @@
   display: inline-block;
   padding: 10px 0;
   text-transform: capitalize;
+  opacity: 0.75;
 }
 
 .newsletter {
@@ -61,23 +62,43 @@
   align-items: center;
 }
 
+.newsletter small {
+  opacity: 0.75;
+}
+
 .profile {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile p {
+  opacity: 0.75;
 }
 
 .email {
-    font-size: 0.9rem;
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .socials {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
 }
 
 .socials img {
-    padding: 5px;
-    width: 30px;
-    height: auto;
+  padding: 2px;
+  width: 23px;
+  height: auto;
 }

@@ -69,6 +69,9 @@ export default function Footer() {
             nathanelwebdesign@gmail.com
           </a>
         </address>
+      </aside>
+      <aside className={styles.copyright}>
+        <small>Nathanel Corpuz &copy; 2023</small>
         <div className={styles.socials}>
           <a
             href="https://twitter.com/nathanelcorpuz"
@@ -86,7 +89,6 @@ export default function Footer() {
           </a>
         </div>
       </aside>
-      <small>Nathanel Corpuz &copy; 2023</small>
     </footer>
   );
 }
