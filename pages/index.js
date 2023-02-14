@@ -1,8 +1,9 @@
 import Head from "next/head";
 import HomePage from "@/components/pages/home/HomePage";
 import MainWrapper from "@/components/common/main-wrapper/MainWrapper";
+import { getArticles } from "@/lib/mock/articles";
 
-export default function Home() {
+export default function Home({ articles }) {
   return (
     <>
       <Head>
@@ -15,8 +16,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainWrapper>
-        <HomePage />
+        <HomePage articles={articles} />
       </MainWrapper>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const articles = await getArticles();
+
+  return { props: { articles } };
 }

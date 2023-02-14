@@ -1,10 +1,7 @@
 import ArticleSection from "@/components/common/article-preview/ArticlePreviewSection";
-import getArticles from "@/lib/mock/articles";
 import Article from "../../common/article-preview/ArticlePreview";
 
-const articles = getArticles();
-
-export default function HomePage() {
+export default function HomePage({ articles }) {
   return (
     <>
       <ArticleSection isFeatured>
