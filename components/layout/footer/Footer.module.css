@@ -82,6 +82,7 @@
 
 .profile p {
   opacity: 0.75;
+  line-height: 1.4rem;
 }
 
 .email {

@@ -29,7 +29,7 @@ export default function Article({ article }) {
           ))}
         </div>
       </hgroup>
-      <p>{description}</p>
+      <p className={styles.description}>{description}</p>
     </article>
   );
 }
