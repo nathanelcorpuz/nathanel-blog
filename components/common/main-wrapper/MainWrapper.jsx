@@ -1,4 +1,4 @@
-export default function MainWrapper({ children }) {
+export default function MainWrapper({ children, styleOverrides = {} }) {
   return (
     <main
       style={{
@@ -6,6 +6,7 @@ export default function MainWrapper({ children }) {
         display: "flex",
         flexDirection: "column",
         gap: 75,
+        ...styleOverrides,
       }}
     >
       {children}

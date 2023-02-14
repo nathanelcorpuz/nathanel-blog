@@ -1,0 +1,43 @@
+.headline {
+  padding: 0 20px;
+}
+
+.headline img,
+.headline ~ section img {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.ordered_list_section {
+  list-style: none;
+  counter-reset: item;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ordered_list_section li {
+  position: relative;
+  counter-increment: item;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.ordered_list_section li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.ordered_list_section h3 {
+  padding-left: 30px;
+}
+
+.summary_title {
+  text-transform: uppercase;
+}

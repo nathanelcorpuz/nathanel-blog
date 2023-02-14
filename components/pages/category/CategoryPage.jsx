@@ -1,5 +1,5 @@
-import Article from "@/components/common/article-preview/ArticlePreview";
-import ArticleSection from "@/components/common/article-preview/ArticlePreviewSection";
+import Article from "@/components/common/article/article-preview/ArticlePreview";
+import ArticleSection from "@/components/common/article/article-preview/ArticlePreviewSection";
 import MainWrapper from "@/components/common/main-wrapper/MainWrapper";
 
 export default function CategoryPage({ category }) {

@@ -14,23 +14,6 @@
   line-height: 2rem;
 }
 
-.author_date_container {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-
-.author,
-.publish_date {
-  opacity: 0.75;
-  font-size: 0.9rem;
-}
-
-.author {
-  padding-right: 5px;
-  border-right: 1px solid gray;
-}
-
 .cover {
   width: 100%;
   height: auto;
