@@ -1,7 +1,7 @@
-import styles from "./Article.module.css";
+import styles from "./ArticlePreview.module.css";
 import Image from "next/image";
 
-export default function Article({ article }) {
+export default function ArticlePreview({ article }) {
   const {
     img,
     alt = "placeholder image",

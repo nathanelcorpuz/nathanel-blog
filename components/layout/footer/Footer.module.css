@@ -10,10 +10,10 @@
 
 .navs_container {
   display: flex;
-  justify-content: space-between;
 }
 
 .nav {
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 30px;

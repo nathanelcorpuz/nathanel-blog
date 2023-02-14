@@ -1,5 +1,5 @@
-import Article from "@/components/common/article/Article";
-import ArticleSection from "@/components/common/article/ArticleSection";
+import Article from "@/components/common/article-preview/ArticlePreview";
+import ArticleSection from "@/components/common/article-preview/ArticlePreviewSection";
 import getArticles from "@/lib/mock/articles";
 
 const articles = getArticles();

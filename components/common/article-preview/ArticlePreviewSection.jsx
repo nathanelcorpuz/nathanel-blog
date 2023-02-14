@@ -1,4 +1,4 @@
-export default function ArticleSection({ isFeatured, children }) {
+export default function ArticlePreviewSection({ isFeatured, children }) {
   return (
     <section
       style={{
