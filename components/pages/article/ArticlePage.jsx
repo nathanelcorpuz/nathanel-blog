@@ -6,7 +6,11 @@ import placeholder3 from "@/public/placeholder/placeholder-3.jpg";
 import placeholder4 from "@/public/placeholder/placeholder-4.jpg";
 import placeholder5 from "@/public/placeholder/placeholder-5.jpg";
 import placeholder6 from "@/public/placeholder/placeholder-6.jpg";
+import smiley from "@/public/smiley.png";
+import straighty from "@/public/straighty.png";
 import ArticlePageSection from "./ArticlePageSection";
+import ArticlePreviewSection from "@/components/common/article/article-preview/ArticlePreviewSection";
+import ArticlePreview from "@/components/common/article/article-preview/ArticlePreview";
 
 export default function ArticlePage({ article }) {
   const { title, author, dateTime, dateString, imgAlt, description } = article;
@@ -104,6 +108,25 @@ export default function ArticlePage({ article }) {
           </em>
         </p>
       </ArticlePageSection>
+      <ArticlePageSection>
+        <p>How did you feel about this article?</p>
+        <form className={styles.feedback_form}>
+          <button>
+            <p>5</p>
+            <Image src={smiley} alt="smiley face icon" />
+          </button>
+          <button>
+            <p>5</p>
+            <Image src={straighty} alt="straight face icon" />
+          </button>
+        </form>
+      </ArticlePageSection>
+      <ArticlePreviewSection>
+        <h2>related</h2>
+        <ArticlePreview article={article} />
+        <ArticlePreview article={article} />
+        <button>Show more</button>
+      </ArticlePreviewSection>
     </MainWrapper>
   );
 }

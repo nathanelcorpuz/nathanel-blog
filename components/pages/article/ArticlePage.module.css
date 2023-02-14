@@ -41,3 +41,20 @@
 .summary_title {
   text-transform: uppercase;
 }
+
+.feedback_form {
+  display: flex;
+  gap: 10px;
+}
+
+.feedback_form button {
+  padding: 3px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback_form button img {
+  width: 30px;
+  height: auto;
+}
