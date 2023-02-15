@@ -1,0 +1,38 @@
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newsletter fieldset {
+  border: none;
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter fieldset > * {
+  width: 100%;
+}
+
+.newsletter input {
+  border: 1px solid white;
+  color: white;
+}
+
+.newsletter button {
+  border: 1px solid white;
+  width: 50px;
+  height: 40px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter button img {
+  height: auto;
+}
+
+.newsletter small {
+  opacity: 0.75;
+}

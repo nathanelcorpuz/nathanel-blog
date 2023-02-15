@@ -1,0 +1,15 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile p {
+  opacity: 0.75;
+  line-height: 1.4rem;
+}
+
+.email {
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
