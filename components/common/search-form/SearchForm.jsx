@@ -12,12 +12,13 @@ export default function SearchForm({ onSubmitSideEffect = () => {} }) {
       className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
-        let currentInputValue = e.target[0].value;
+        if (!searchQuery) return;
         router.push({
           pathname: "/search/[searchQuery]",
           query: { searchQuery: searchQuery },
         });
-        currentInputValue = ""; // clears input
+        e.target[0].value = ""; // clears input
+        setSearchQuery("");
         onSubmitSideEffect();
       }}
     >
