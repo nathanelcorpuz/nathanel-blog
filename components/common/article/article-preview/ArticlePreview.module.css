@@ -56,8 +56,6 @@
     justify-content: space-between;
   }
 
-
-
   .article_preview_section.all h2 {
     width: 100%;
   }
@@ -81,6 +79,19 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transition: all 0.3s;
+}
+
+@media (min-width: 1024px) {
+  .article_preview {
+    padding: 20px;
+  }
+}
+
+.article_preview:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+  background: #f5f5f5;
 }
 
 .article_preview hgroup {
