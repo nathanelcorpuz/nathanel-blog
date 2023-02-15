@@ -2,7 +2,6 @@ import ArticlePage from "@/components/pages/article/ArticlePage";
 import { getArticle } from "@/lib/mock/articles";
 
 export default function Article({ article }) {
-  if (!article) return <h1 style={{ padding: "70px 20px 0" }}>Loading...</h1>;
   return <ArticlePage article={article} />;
 }
 
