@@ -1,5 +1,5 @@
-import Article from "@/components/common/article/article-preview/ArticlePreview";
-import ArticleSection from "@/components/common/article/article-preview/ArticlePreviewSection";
+import ArticlePreview from "@/components/common/article/article-preview/ArticlePreview";
+import ArticlePreviewSection from "@/components/common/article/article-preview/ArticlePreviewSection";
 import { capitalize } from "@/lib/utils/capitalize";
 import Head from "next/head";
 
@@ -18,11 +18,11 @@ export default function CategoryPage({ articles, category }) {
       </h1>
       {articles && (
         <>
-          <ArticleSection>
+          <ArticlePreviewSection>
             {articles.map((article) => (
-              <Article key={article.id} article={article} />
+              <ArticlePreview key={article.id} article={article} />
             ))}
-          </ArticleSection>
+          </ArticlePreviewSection>
           <button style={{ margin: "0 20px" }}>Show more</button>
         </>
       )}
