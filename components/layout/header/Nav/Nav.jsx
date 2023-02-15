@@ -34,7 +34,7 @@ export default function Nav() {
               query: { key: searchKey },
             });
             setIsOpen(false);
-            e.target[0].value = "";
+            e.target[0].value = ""; // clears search input
           }}
         >
           <input
