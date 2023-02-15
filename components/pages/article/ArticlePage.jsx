@@ -6,6 +6,7 @@ import ArticlePageMain from "./main/ArticlePageMain";
 import Head from "next/head";
 
 export default function ArticlePage({ article }) {
+  const title = article.title ? `${article.title} - Nathanel Corpuz Blog` : "";
   return (
     <>
       <Head>
@@ -13,7 +14,8 @@ export default function ArticlePage({ article }) {
           <title>Loading article... - Blog - Nathanel Corpuz</title>
         ) : (
           <>
-            <title>{article.title} - Blog - Nathanel Corpuz</title>
+            <title>{title}</title>
+            {/* <title>{article.title}</title> */}
             <meta name="description" content={article.description} />
           </>
         )}

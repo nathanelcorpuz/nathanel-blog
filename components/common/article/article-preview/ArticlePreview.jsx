@@ -1,9 +1,11 @@
 import styles from "./ArticlePreview.module.css";
 import Image from "next/image";
 import ArticleAuthorDate from "../article-author-date/ArticleAuthorDate";
+import { useRouter } from "next/router";
 
 export default function ArticlePreview({ article }) {
   const {
+    slug,
     img,
     alt = "placeholder image",
     author,
@@ -13,11 +15,13 @@ export default function ArticlePreview({ article }) {
     tags,
     description,
   } = article;
+
+  const router = useRouter();
   return (
     <article
-      onClick={() => {
-        console.log("article clicked");
-      }}
+      aria-label="clickable article preview"
+      aria-roledescription="clickable article preview"
+      onClick={() => router.push({ pathname: `/article/${slug}` })}
       className={styles.article_preview}
     >
       <Image className={styles.cover} src={img} alt={alt} />
