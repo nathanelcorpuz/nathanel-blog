@@ -17,3 +17,19 @@
     align-items: center;
   }
 }
+
+@media (min-width: 1200px) {
+  .main {
+    align-items: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main {
+    max-width: 1400px;
+  }
+}
