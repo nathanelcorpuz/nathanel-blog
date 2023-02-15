@@ -1,10 +1,9 @@
 import Article from "@/components/common/article/article-preview/ArticlePreview";
 import ArticleSection from "@/components/common/article/article-preview/ArticlePreviewSection";
-import MainWrapper from "@/components/common/main-wrapper/MainWrapper";
 
 export default function CategoryPage({ category }) {
   return (
-    <MainWrapper>
+    <>
       <h1 style={{ textTransform: "capitalize", padding: "0 20px" }}>
         {category}
       </h1>
@@ -14,6 +13,6 @@ export default function CategoryPage({ category }) {
         ))}
       </ArticleSection> */}
       <button style={{ margin: "0 20px" }}>Show more</button>
-    </MainWrapper>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import styles from "./ArticlePage.module.css";
 import ArticleAuthorDate from "@/components/common/article/article-author-date/ArticleAuthorDate";
-import MainWrapper from "@/components/common/main-wrapper/MainWrapper";
 import Image from "next/image";
 import placeholder3 from "@/public/placeholder/placeholder-3.jpg";
 import placeholder4 from "@/public/placeholder/placeholder-4.jpg";
@@ -15,7 +14,7 @@ import ArticlePreview from "@/components/common/article/article-preview/ArticleP
 export default function ArticlePage({ article }) {
   const { title, author, dateTime, dateString, imgAlt, description } = article;
   return (
-    <MainWrapper>
+    <>
       <section className={styles.headline}>
         <hgroup>
           <h1 style={{ overflowWrap: "break-word", marginBottom: 10 }}>
@@ -127,6 +126,6 @@ export default function ArticlePage({ article }) {
         <ArticlePreview article={article} />
         <button>Show more</button>
       </ArticlePreviewSection>
-    </MainWrapper>
+    </>
   );
 }

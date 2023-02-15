@@ -12,7 +12,16 @@ export default function Layout({ children }) {
       }}
     >
       <Header />
-      {children}
+      <main
+        style={{
+          paddingTop: "75px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 75,
+        }}
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );
