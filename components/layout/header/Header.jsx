@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import logo from "@/public/nathanel-corpuz-logo.png";
 import Image from "next/image";
-import Nav from "./Nav/Nav";
+import Nav from "./nav/Nav";
 
 export default function Header() {
   return (

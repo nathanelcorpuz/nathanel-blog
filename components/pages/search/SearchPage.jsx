@@ -2,8 +2,8 @@ import ArticlePreview from "@/components/common/article/article-preview/ArticleP
 import ArticlePreviewSection from "@/components/common/article/article-preview/ArticlePreviewSection";
 import Head from "next/head";
 
-export default function SearchPage({ articles, query }) {
-  const isLoading = !articles && !query;
+export default function SearchPage({ articles, searchQuery }) {
+  const isLoading = !articles && !searchQuery;
   return (
     <>
       <Head>
@@ -23,7 +23,7 @@ export default function SearchPage({ articles, query }) {
                 fontWeight: "normal",
               }}
             >
-              for "{query}"
+              for "{searchQuery}"
             </h2>
           </hgroup>
           <>
