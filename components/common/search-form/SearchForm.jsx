@@ -11,6 +11,7 @@ export default function SearchForm({ onSubmitSideEffect = () => {} }) {
     <form
       className={styles.form}
       onSubmit={(e) => {
+        e.preventDefault();
         let currentInputValue = e.target[0].value;
         router.push({
           pathname: "/search/[searchQuery]",
