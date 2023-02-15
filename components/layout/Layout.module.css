@@ -1,0 +1,19 @@
+.layout_root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  padding-top: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+@media (min-width: 600px) {
+  .main {
+    align-items: center;
+  }
+}

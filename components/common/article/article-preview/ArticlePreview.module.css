@@ -1,16 +1,29 @@
-.article {
+.article_preview_section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 70px;
+}
+
+@media (min-width: 600px) {
+  .article_preview_section {
+    max-width: 600px;
+  }
+}
+
+.article_preview {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.article hgroup {
+.article_preview hgroup {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.article h3 {
+.article_preview h3 {
   line-height: 2rem;
 }
 

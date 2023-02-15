@@ -1,14 +1,7 @@
-export default function ArticlePreviewSection({ isFeatured, children }) {
+import styles from "./ArticlePreview.module.css";
+
+export default function ArticlePreviewSection({ children, overrides = {} }) {
   return (
-    <section
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: 20,
-        gap: isFeatured ? 20 : 75,
-      }}
-    >
-      {children}
-    </section>
+    <section className={styles.article_preview_section}>{children}</section>
   );
 }

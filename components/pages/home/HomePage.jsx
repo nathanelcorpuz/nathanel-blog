@@ -1,11 +1,13 @@
+import styles from "./HomePage.module.css";
 import ArticleSection from "@/components/common/article/article-preview/ArticlePreviewSection";
+import ShowMoreBtn from "@/components/common/show-more-btn/ShowMoreBtn";
 import Article from "../../common/article/article-preview/ArticlePreview";
 
 export default function HomePage({ articles }) {
   return (
     <>
-      <ArticleSection isFeatured>
-        <h1>Nathanel Corpuz Blog</h1>
+      <h1 className={styles.h1}>Nathanel Corpuz Blog</h1>
+      <ArticleSection>
         <Article article={articles.featured} />
       </ArticleSection>
       <ArticleSection>
@@ -19,7 +21,7 @@ export default function HomePage({ articles }) {
         {articles.all.map((article) => (
           <Article key={article.id} article={article} />
         ))}
-        <button>Show more</button>
+        <ShowMoreBtn />
       </ArticleSection>
     </>
   );

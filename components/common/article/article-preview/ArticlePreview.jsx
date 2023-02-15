@@ -14,7 +14,7 @@ export default function ArticlePreview({ article }) {
     description,
   } = article;
   return (
-    <article className={styles.article}>
+    <article className={styles.article_preview}>
       <Image className={styles.cover} src={img} alt={alt} />
       <hgroup>
         <ArticleAuthorDate data={{ author, dateString, dateTime }} />
