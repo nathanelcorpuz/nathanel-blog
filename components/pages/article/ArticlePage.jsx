@@ -15,7 +15,6 @@ export default function ArticlePage({ article }) {
         ) : (
           <>
             <title>{title}</title>
-            {/* <title>{article.title}</title> */}
             <meta name="description" content={article.description} />
           </>
         )}
