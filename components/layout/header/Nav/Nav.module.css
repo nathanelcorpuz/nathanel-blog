@@ -41,27 +41,3 @@
   transform: translateY(-150%);
   transition: all 0.5s;
 }
-
-.aside.open {
-  transform: translateY(0);
-}
-
-.aside nav ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-.aside nav ul a {
-  padding: 10px;
-  display: inline-block;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-
-.aside address a {
-  font-size: 0.9rem;
-  display: inline-block;
-  margin: 0 auto;
-}

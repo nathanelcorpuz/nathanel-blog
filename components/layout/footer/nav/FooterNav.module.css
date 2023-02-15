@@ -1,12 +1,8 @@
-.navs_container {
-  display: flex;
-}
-
 .nav {
-  width: 50%;
+  width: max-content;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .nav h4 {

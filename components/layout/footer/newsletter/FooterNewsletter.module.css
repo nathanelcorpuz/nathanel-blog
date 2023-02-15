@@ -2,6 +2,19 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 500px;
+}
+
+@media (min-width: 1024px) {
+  .newsletter {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .newsletter {
+    max-width: 500px;
+  }
 }
 
 .newsletter fieldset {
@@ -35,4 +48,9 @@
 
 .newsletter small {
   opacity: 0.75;
+}
+
+.newsletter small a {
+  display: inline-block;
+  padding-top: 20px;
 }

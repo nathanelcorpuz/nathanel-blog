@@ -9,6 +9,12 @@
   height: 40px;
 }
 
+@media (min-width: 400px) {
+  .form input {
+    width: 300px;
+  }
+}
+
 .form button {
   display: flex;
   align-items: center;
