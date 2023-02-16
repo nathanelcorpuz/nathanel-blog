@@ -5,6 +5,10 @@
   max-width: 500px;
 }
 
+.newsletter label {
+  line-height: normal;
+}
+
 @media (min-width: 1024px) {
   .newsletter {
     max-width: 300px;

@@ -7,6 +7,7 @@
 
 .nav h4 {
   text-transform: capitalize;
+  line-height: normal;
 }
 
 .nav ul {
