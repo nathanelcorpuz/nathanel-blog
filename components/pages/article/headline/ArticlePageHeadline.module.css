@@ -45,6 +45,7 @@
 @media (min-width: 1024px) {
   .headline h1 {
     font-size: 3.3rem;
+    line-height: 4.5rem;
   }
 
   .headline > p {
@@ -56,6 +57,7 @@
 @media (min-width: 1200px) {
   .headline h1 {
     font-size: 3.5rem;
+    line-height: 5rem;
   }
 
   .headline > p {

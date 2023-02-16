@@ -6,7 +6,11 @@ import ArticlePageMain from "./main/ArticlePageMain";
 import Head from "next/head";
 
 export default function ArticlePage({ article }) {
-  const title = article.title ? `${article.title} - Nathanel Corpuz Blog` : "";
+  let title;
+
+  if (article) {
+    title = article.title ? `${article.title} - Nathanel Corpuz Blog` : "";
+  }
   return (
     <>
       <Head>
