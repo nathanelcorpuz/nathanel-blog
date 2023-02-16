@@ -1,5 +1,6 @@
 import ArticlePreview from "@/components/common/article/article-preview/ArticlePreview";
 import ArticlePreviewSection from "@/components/common/article/article-preview/ArticlePreviewSection";
+import ShowMoreBtn from "@/components/common/show-more-btn/ShowMoreBtn";
 import Head from "next/head";
 
 export default function SearchPage({ articles, searchQuery }) {
@@ -13,7 +14,9 @@ export default function SearchPage({ articles, searchQuery }) {
         <h1 style={{ paddingInline: 20 }}>Loading...</h1>
       ) : (
         <>
-          <hgroup style={{ paddingInline: 20 }}>
+          <hgroup
+            style={{ paddingInline: 20, width: "100%", textAlign: "center" }}
+          >
             <h1>Search results</h1>
             <h2
               style={{
@@ -27,12 +30,12 @@ export default function SearchPage({ articles, searchQuery }) {
             </h2>
           </hgroup>
           <>
-            <ArticlePreviewSection>
+            <ArticlePreviewSection view="search">
               {articles.map((article) => (
                 <ArticlePreview key={article.id} article={article} />
               ))}
             </ArticlePreviewSection>
-            <button style={{ margin: "0 20px" }}>Show more</button>
+            <ShowMoreBtn style={{ margin: "0 auto" }}>Show more</ShowMoreBtn>
           </>
         </>
       )}
