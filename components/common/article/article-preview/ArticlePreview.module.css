@@ -145,3 +145,20 @@
 .description {
   line-height: 1.9rem;
 }
+
+/* category & search page */
+
+@media (min-width: 1200px) {
+  .article_preview_section.category,
+  .article_preview_section.search {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .article_preview_section.category .article_preview,
+  .article_preview_section.search .article_preview {
+    max-width: 500px;
+  }
+}

@@ -1,0 +1,13 @@
+.h1 {
+  text-transform: capitalize;
+  padding: 0 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .h1 {
+    font-size: 4rem;
+    padding-top: 30px;
+  }
+}
