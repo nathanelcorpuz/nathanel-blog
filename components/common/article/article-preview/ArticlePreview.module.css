@@ -10,22 +10,43 @@
   .article_preview_section {
     max-width: 600px;
   }
+
+  .article_preview_section.related {
+    max-width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 50px;
+  }
+
+  .article_preview_section.related h2 {
+    width: 100%;
+  }
+
+  .article_preview_section.related .article_preview {
+    max-width: 600px;
+  }
+
+  @media (min-width: 800px) {
+    .article_preview_section.related .article_preview {
+      max-width: 350px;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
   .article_preview_section.featured {
-    max-width: 700px;
+    max-width: 650px;
   }
 
   .article_preview_section.latest {
-    max-width: 400px;
+    max-width: 450px;
     gap: 50px;
     margin-left: -50px;
   }
 
   @media (min-width: 1400px) {
     .article_preview_section.latest {
-      max-width: 550px;
       margin-left: 0;
     }
   }
@@ -41,8 +62,8 @@
   }
 
   .article_preview_section.latest h3 {
-    line-height: 1.5rem;
     font-size: 1.25rem;
+    line-height: 2rem;
   }
 
   .article_preview_section.latest .description {
@@ -79,13 +100,6 @@
     max-width: 300px;
   }
 
-  @media (min-width: 1400px) {
-    .article_preview_section.all .article_preview,
-    .article_preview_section.related .article_preview {
-      max-width: 400px;
-    }
-  }
-
   .article_preview_section.all button,
   .article_preview_section.related button {
     margin-inline: 400px;
@@ -118,7 +132,7 @@
 }
 
 .article_preview h3 {
-  line-height: 2rem;
+  line-height: 2.5rem;
 }
 
 .cover {
@@ -138,5 +152,5 @@
 }
 
 .description {
-  line-height: 1.5rem;
+  line-height: 1.9rem;
 }

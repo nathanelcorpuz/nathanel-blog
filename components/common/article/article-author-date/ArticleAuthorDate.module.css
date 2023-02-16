@@ -1,16 +1,17 @@
 .author_date_container {
   display: flex;
-  gap: 5px;
+  gap: 7px;
   flex-wrap: wrap;
 }
 
 .author,
 .publish_date {
+  line-height: normal;
   opacity: 0.75;
   font-size: 0.9rem;
 }
 
 .author {
-  padding-right: 5px;
+  padding-right: 7px;
   border-right: 1px solid gray;
 }

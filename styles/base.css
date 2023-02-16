@@ -13,23 +13,42 @@ input {
   font-size: 1rem;
 }
 
+p {
+  line-height: 2rem;
+}
+
+@media (max-width: 600px) {
+  p {
+    line-height: 1.7rem;
+  }
+}
+
 h1 {
   font-size: 2.5rem;
+  line-height: 4.5rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    line-height: 3.5rem;
+  }
 }
 
 h2 {
   font-size: 2.1rem;
   letter-spacing: 0.3rem;
+  line-height: 3.3rem;
   text-transform: uppercase;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 h4,
 label {
   font-size: 1.2rem;
+  line-height: 5rem;
   font-weight: bold;
 }
 

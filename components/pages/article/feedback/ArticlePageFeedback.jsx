@@ -6,7 +6,7 @@ import straighty from "@/public/straighty.png";
 
 export default function ArticlePageFeedback() {
   return (
-    <ArticlePageSection>
+    <ArticlePageSection style={{ width: "100%" }}>
       <p>How did you feel about this article?</p>
       <form className={styles.feedback_form}>
         <button>

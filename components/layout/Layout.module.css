@@ -9,7 +9,7 @@
   padding-top: 75px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 70px;
 }
 
 @media (min-width: 600px) {
@@ -25,11 +25,5 @@
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-  }
-}
-
-@media (min-width: 1400px) {
-  .main {
-    max-width: 1400px;
   }
 }

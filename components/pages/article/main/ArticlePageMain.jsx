@@ -1,4 +1,4 @@
-import styles from "../ArticlePage.module.css";
+import styles from "./ArticlePageMain.module.css";
 import placeholder3 from "@/public/placeholder/placeholder-3.jpg";
 import placeholder4 from "@/public/placeholder/placeholder-4.jpg";
 import placeholder5 from "@/public/placeholder/placeholder-5.jpg";
@@ -8,7 +8,7 @@ import ArticlePageSection from "../ArticlePageSection";
 
 export default function ArticlePageMain() {
   return (
-    <>
+    <div className={styles.div}>
       <ArticlePageSection>
         <h3>Sed nisi mi, venenatis sed iaculis eget.</h3>
         <p>
@@ -42,15 +42,21 @@ export default function ArticlePageMain() {
             gap: 10,
           }}
         >
-          <li>Suspendisse quis gravida enim.</li>
-          <li>Cras a neque vulputate, vehicula odio aliquam, varius justo.</li>
-          <li>Nunc ut pulvinar neque.</li>
+          <li>
+            <p>Suspendisse quis gravida enim.</p>
+          </li>
+          <li>
+            <p>Cras a neque vulputate, vehicula odio aliquam, varius justo.</p>
+          </li>
+          <li>
+            <p>Nunc ut pulvinar neque.</p>
+          </li>
         </ol>
       </ArticlePageSection>
       <ArticlePageSection>
         <ol className={styles.ordered_list_section}>
           <li>
-            <h3>Suspendisse quis gravida enim.</h3>
+            <h3>1. Suspendisse quis gravida enim.</h3>
             <Image src={placeholder4} alt="test image" />
             <p>
               Donec ac nibh ac neque rhoncus pulvinar ut non eros. Suspendisse
@@ -59,7 +65,7 @@ export default function ArticlePageMain() {
           </li>
           <li>
             <h3>
-              Cras a neque vulputate, vehicula odio aliquam, varius justo.
+              2. Cras a neque vulputate, vehicula odio aliquam, varius justo.
             </h3>
             <Image src={placeholder5} alt="test image" />
             <p>
@@ -68,7 +74,7 @@ export default function ArticlePageMain() {
             </p>
           </li>
           <li>
-            <h3>Nunc ut pulvinar neque.</h3>
+            <h3>3. Nunc ut pulvinar neque.</h3>
             <Image src={placeholder6} alt="test image" />
             <p>
               Nulla vestibulum dictum risus non faucibus. Praesent sed mauris
@@ -77,6 +83,6 @@ export default function ArticlePageMain() {
           </li>
         </ol>
       </ArticlePageSection>
-    </>
+    </div>
   );
 }
