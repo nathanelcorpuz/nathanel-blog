@@ -68,5 +68,15 @@
 .ordered_list_section li {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .ordered_list_section {
+    gap: 4rem;
+  }
+
+  .ordered_list_section li {
+    gap: 2rem;
+  }
 }
