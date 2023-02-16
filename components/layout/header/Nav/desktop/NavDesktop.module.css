@@ -27,5 +27,12 @@
 }
 
 .aside nav ul li a {
-  padding-inline: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.aside nav ul li a:hover {
+  transform: scale(1.1);
 }

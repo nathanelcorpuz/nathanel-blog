@@ -3,6 +3,12 @@
   font-size: 1.3rem;
   width: 90%;
   max-width: 500px;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 @media (min-width: 600px) {
