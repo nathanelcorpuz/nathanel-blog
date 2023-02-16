@@ -4,11 +4,11 @@ import ShowMoreBtn from "@/components/common/show-more-btn/ShowMoreBtn";
 
 export default function ArticlePageRelated({ article }) {
   return (
-    <ArticlePreviewSection>
+    <ArticlePreviewSection view="related">
       <h2>related</h2>
       <ArticlePreview article={article} />
       <ArticlePreview article={article} />
-      <ShowMoreBtn />
+      <ShowMoreBtn style={{ margin: 0 }} />
     </ArticlePreviewSection>
   );
 }

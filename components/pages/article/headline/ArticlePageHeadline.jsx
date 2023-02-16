@@ -1,6 +1,6 @@
 import ArticleAuthorDate from "@/components/common/article/article-author-date/ArticleAuthorDate";
 import Image from "next/image";
-import styles from "../ArticlePage.module.css";
+import styles from "./ArticlePageHeadline.module.css";
 
 export default function ArticlePageHeadline({ article }) {
   const { title, author, dateTime, dateString, description, imgAlt } = article;

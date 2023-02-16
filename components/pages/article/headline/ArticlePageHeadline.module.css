@@ -1,0 +1,34 @@
+.headline {
+  padding: 0 20px;
+}
+
+.headline img,
+.headline ~ section img {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+@media (min-width: 600px) {
+  .headline img {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headline h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .headline h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .headline h1 {
+    font-size: 4rem;
+  }
+}

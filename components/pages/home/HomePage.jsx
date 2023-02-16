@@ -17,7 +17,7 @@ export default function HomePage({ articles }) {
         ))}
       </ArticlePreviewSection>
       <ArticlePreviewSection view="all">
-        <h2>All</h2>
+        <h2 className={styles.all_title}>All</h2>
         {articles.all.map((article) =>
           article.id === "article7" ? null : (
             <Article key={article.id} article={article} />

@@ -1,12 +1,14 @@
-.headline {
+.section {
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.headline img,
-.headline ~ section img {
-  width: 100%;
-  height: auto;
-  margin: 10px 0;
+@media (min-width: 600px) {
+  .section img {
+    max-width: 600px;
+  }
 }
 
 .ordered_list_section {
