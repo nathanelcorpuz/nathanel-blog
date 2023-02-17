@@ -5,22 +5,23 @@ export default function HomePage({ articles = [] }) {
   const featured = articles[0];
   const latest = articles.slice(12);
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 100 }}>
-      <section id="featured">
-        <h1>Nathanel Corpuz Blog</h1>
+    <div className={styles.wrapper}>
+      <section id="featured" className={styles.featured}>
+        <h1 style={{ padding: 20 }}>Nathanel Corpuz Blog</h1>
         <ArticlePreview article={featured} />
       </section>
-      <section id="latest">
-        <h2 className={styles.section_h2}>Latest</h2>
+      <section id="latest" className={styles.latest}>
+        <h2>Latest</h2>
         {latest.map((article) => (
-          <ArticlePreview key={article.id} article={article} />
+          <ArticlePreview key={article.id} article={article} view="latest" />
         ))}
       </section>
-      <section id="all">
-        <h2 className={styles.section_h2}>All</h2>
+      <section id="all" className={styles.all}>
+        <h2>All</h2>
         {articles.map((article) => (
-          <ArticlePreview key={article.id} article={article} />
+          <ArticlePreview key={article.id} article={article} view="all" />
         ))}
+        <button style={{ margin: 20 }}>Show more</button>
       </section>
     </div>
   );
