@@ -7,7 +7,7 @@ export default function HomePage({ articles = [] }) {
   return (
     <div className={styles.wrapper}>
       <section id="featured" className={styles.featured}>
-        <h1 style={{ padding: 20 }}>Nathanel Corpuz Blog</h1>
+        <h2>Featured</h2>
         <ArticlePreview article={featured} />
       </section>
       <section id="latest" className={styles.latest}>
@@ -21,7 +21,7 @@ export default function HomePage({ articles = [] }) {
         {articles.map((article) => (
           <ArticlePreview key={article.id} article={article} view="all" />
         ))}
-        <button style={{ margin: 20 }}>Show more</button>
+        <button>Show more</button>
       </section>
     </div>
   );

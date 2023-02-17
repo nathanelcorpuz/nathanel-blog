@@ -13,13 +13,11 @@
 }
 
 .wrapper section > h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
   padding: 20px;
 }
 
 @media (min-width: 500px) {
-  .wrapper section > h1 {
+  .wrapper > h1 {
     font-size: 2.5rem;
   }
   .wrapper section > h2 {
@@ -57,5 +55,24 @@
 
   .all button {
     width: 500px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrapper {
+    max-width: 1400px;
+    justify-content: center;
+  }
+
+  .featured {
+    max-width: 700px;
+  }
+
+  .latest {
+    max-width: 500px;
+  }
+
+  .all button {
+    margin: 0 500px;
   }
 }
