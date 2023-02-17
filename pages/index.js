@@ -1,6 +1,6 @@
 import Head from "next/head";
 import HomePage from "@/components/pages/home/HomePage";
-import { getMockArticles } from "@/lib/mock/articles";
+import { getArticles } from "@/lib/mock/articles";
 
 export default function Home({ articles }) {
   return (
@@ -20,6 +20,6 @@ export default function Home({ articles }) {
 }
 
 export async function getStaticProps() {
-  const articles = await getMockArticles();
+  const articles = await getArticles();
   return { props: { articles } };
 }

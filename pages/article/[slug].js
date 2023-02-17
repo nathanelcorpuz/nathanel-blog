@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const article = await getArticle({ slug: params.slug });
+  const article = await getArticle(params.slug);
 
   return {
     props: {

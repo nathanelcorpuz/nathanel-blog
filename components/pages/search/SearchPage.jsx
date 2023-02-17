@@ -1,6 +1,4 @@
-import ArticlePreview from "@/components/common/article/article-preview/ArticlePreview";
-import ArticlePreviewSection from "@/components/common/article/article-preview/ArticlePreviewSection";
-import ShowMoreBtn from "@/components/common/show-more-btn/ShowMoreBtn";
+import ArticlePreview from "@/components/common/article-preview/ArticlePreview";
 import Head from "next/head";
 
 export default function SearchPage({ articles, searchQuery }) {
@@ -30,12 +28,10 @@ export default function SearchPage({ articles, searchQuery }) {
             </h2>
           </hgroup>
           <>
-            <ArticlePreviewSection view="search">
-              {articles.map((article) => (
-                <ArticlePreview key={article.id} article={article} />
-              ))}
-            </ArticlePreviewSection>
-            <ShowMoreBtn style={{ margin: "0 auto" }}>Show more</ShowMoreBtn>
+            {articles.map((article) => (
+              <ArticlePreview key={article.id} article={article} />
+            ))}
+            <button>Show more</button>
           </>
         </>
       )}
