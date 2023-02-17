@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 40px;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.h1 {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.wrapper > hgroup {
+  width: 100%;
+}
+
+.wrapper > hgroup h2 {
+  font-weight: normal;
+  text-align: center;
+}
+
+.wrapper button {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 500px) {
+  .wrapper section > h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    max-width: 1000px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .h1 {
+    text-align: center;
+  }
+
+  .wrapper button {
+    width: 50%;
+  }
+}
