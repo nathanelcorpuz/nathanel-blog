@@ -9,21 +9,5 @@
   padding-top: 75px;
   display: flex;
   flex-direction: column;
-  gap: 70px;
-}
-
-@media (min-width: 600px) {
-  .main {
-    align-items: center;
-  }
-}
-
-@media (min-width: 1200px) {
-  .main {
-    align-items: start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  gap: 100px;
 }

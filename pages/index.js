@@ -1,12 +1,12 @@
 import Head from "next/head";
 import HomePage from "@/components/pages/home/HomePage";
-import { getArticles } from "@/lib/mock/articles";
+import { getMockArticles } from "@/lib/mock/articles";
 
 export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>Blog - Nathanel Corpuz - Web designer / developer</title>
+        <title>Blog - Nathanel Corpuz - Web designer and developer</title>
         <meta
           name="description"
           content="Home page for the blog website of Nathanel Corpuz, a web designer and developer for businesses, entrepreneurs, and professionals."
@@ -20,7 +20,6 @@ export default function Home({ articles }) {
 }
 
 export async function getStaticProps() {
-  const articles = await getArticles();
-
+  const articles = await getMockArticles();
   return { props: { articles } };
 }
