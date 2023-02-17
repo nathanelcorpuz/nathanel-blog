@@ -13,15 +13,21 @@ export default function CategoryPage({ articles, category }) {
             : `${capitalize(category)} - Blog - Nathanel Corpuz`}
         </title>
       </Head>
-      <h1 className={styles.h1}>{!articles ? "Loading..." : category}</h1>
-      {articles && (
-        <>
-          {articles.map((article) => (
-            <ArticlePreview key={article.id} article={article} />
-          ))}
-          <button>Show more</button>
-        </>
-      )}
+      <div className={styles.wrapper}>
+        <h1 className={styles.h1}>{!articles ? "Loading..." : category}</h1>
+        {articles && (
+          <>
+            {articles.map((article) => (
+              <ArticlePreview
+                key={article.id}
+                article={article}
+                view="category"
+              />
+            ))}
+            <button>Show more</button>
+          </>
+        )}
+      </div>
     </>
   );
 }

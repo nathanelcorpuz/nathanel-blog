@@ -73,7 +73,8 @@
     font-size: 0.85rem;
   }
 
-  .article.all {
+  .article.all,
+  .article.category {
     max-width: 470px;
   }
 }

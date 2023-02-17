@@ -1,7 +1,6 @@
 import styles from "./ArticlePage.module.css";
 
 export default function ArticlePage({ article }) {
-  console.log(article);
   if (!article) return <p>loading</p>;
   return (
     <article className={styles.article}>
