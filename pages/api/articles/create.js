@@ -11,10 +11,11 @@ export default async function handler(req, res) {
   try {
     await connectMongo();
     const article = req.body;
-    const slug = slug(article.title);
+    const sluggedTitle = slug(article.headline.heading);
 
     const newArticle = await Article.create({
       ...article,
+      slug: sluggedTitle,
       img: "",
       imgAlt: "placeholder image",
       dates: {
@@ -23,9 +24,7 @@ export default async function handler(req, res) {
       },
     });
 
-    // wip
-
-    res.status(200).json();
+    res.status(200).json(newArticle);
   } catch (error) {
     console.log(error);
     res.json({ error });
