@@ -1,5 +1,5 @@
 import createArticle from "@/helpers/createArticle";
-import connectMongo from "@/lib/utils/connectMongo";
+import connectMongo from "@/helpers/connectMongo";
 import Article from "@/models/article";
 
 /**

@@ -20,7 +20,7 @@ export default function ArticlePage({ article, related = [] }) {
               rel="author"
               target="_blank"
             >
-              Nathanel Corpuz
+              {article.author}
             </a>
             <p>
               <time dateTime={article.dates.published}>

@@ -20,6 +20,8 @@ export default function Home({ articles }) {
 }
 
 export async function getStaticProps() {
+  // get home articles
+  // returns an object that contains featured, latest, and initialAll
   const articles = await getArticles();
   return { props: { articles } };
 }

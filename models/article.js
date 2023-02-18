@@ -26,8 +26,8 @@ const articleSchema = new Schema({
   imgAlt: String,
   author: { type: String, required: true },
   dates: {
-    published: String,
-    edited: String,
+    published: Date,
+    edited: Date,
   },
   headline: {
     heading: { type: String, required: true },
@@ -36,6 +36,8 @@ const articleSchema = new Schema({
   sections: [sectionSchema],
   summary: { type: String, required: true },
   tags: { type: [String], required: true },
+  isFeatured: { type: Boolean, default: false },
+  testProp: { type: Boolean, default: false },
 });
 
 const Article = models.Article || model("Article", articleSchema);

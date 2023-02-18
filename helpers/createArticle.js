@@ -1,6 +1,6 @@
 import Article from "@/models/article";
 import slug from "slug";
-import sanitizeArticle from "@/lib/utils/sanitizeArticle";
+import sanitizeArticle from "@/helpers/sanitizeArticle";
 
 export default async function createArticle(article) {
   const sluggedTitle = slug(article.headline.heading);
@@ -12,7 +12,7 @@ export default async function createArticle(article) {
     img: "",
     imgAlt: "placeholder image",
     dates: {
-      published: new Date("December 20, 2022"),
+      published: new Date(article.dates.published),
       edited: null,
     },
   });

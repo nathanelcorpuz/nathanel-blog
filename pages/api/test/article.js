@@ -1,7 +1,8 @@
-import slug from "slug";
+import connectMongo from "@/helpers/connectMongo";
+import randomDate from "@/lib/utils/randomDate";
+import Article from "@/models/article";
 import { LoremIpsum } from "lorem-ipsum";
-import { v4 as uuidv4 } from "uuid";
-import { articles } from "./db";
+import slug from "slug";
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -14,96 +15,84 @@ const lorem = new LoremIpsum({
   },
 });
 
-export function generateMockArticles(numOfArticles) {
+export default async function handler(req, res) {
+  await connectMongo();
+  const { numOfArticles } = req.body;
   let mockArticles = [];
   for (let i = 0; i < numOfArticles; i++) {
-    const heading = lorem.generateWords(10);
+    const heading = lorem.generateWords(7);
     const mockArticle = {
-      id: uuidv4(),
       slug: slug(heading),
-      img: placeholder1,
-      imgAlt: "image for placeholder 1",
-      author: "Nathanel Corpuz",
+      img: "",
+      imgAlt: "placeholder image",
+      author: lorem.generateWords(2),
       dates: {
-        published: "2022-12-17",
-        edited: "",
+        published: randomDate({
+          from: new Date("2020-01-01"),
+          to: new Date("2023-05-30"),
+        }),
       },
       headline: {
-        heading: heading,
+        heading: lorem.generateWords(7),
         subheading: lorem.generateSentences(3),
       },
       sections: [
         {
-          id: uuidv4(),
           type: "standard",
           content: {
             heading: lorem.generateWords(7),
             paragraphs: [
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(4),
               },
             ],
           },
         },
         {
-          id: uuidv4(),
           type: "numbered_list",
           content: {
             heading: lorem.generateWords(6),
             paragraphs: [
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(2),
               },
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(5),
               },
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(3),
               },
             ],
             items: [
               {
-                id: uuidv4(),
                 heading: lorem.generateWords(5),
                 paragraphs: [
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(3),
                   },
                 ],
               },
               {
-                id: uuidv4(),
                 heading: lorem.generateWords(5),
                 paragraphs: [
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                 ],
               },
               {
-                id: uuidv4(),
                 heading: lorem.generateWords(8),
                 paragraphs: [
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                 ],
@@ -112,62 +101,50 @@ export function generateMockArticles(numOfArticles) {
           },
         },
         {
-          id: uuidv4(),
           type: "standard",
           content: {
             heading: lorem.generateWords(4),
             paragraphs: [
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(4),
               },
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(4),
               },
             ],
           },
         },
         {
-          id: uuidv4(),
           type: "bulleted_list",
           content: {
             heading: lorem.generateWords(6),
             paragraphs: [
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(2),
               },
               {
-                id: uuidv4(),
                 text: lorem.generateSentences(3),
               },
             ],
             items: [
               {
-                id: uuidv4(),
                 heading: lorem.generateWords(5),
                 paragraphs: [
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                 ],
               },
               {
-                id: uuidv4(),
                 heading: lorem.generateWords(8),
                 paragraphs: [
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                   {
-                    id: uuidv4(),
                     text: lorem.generateSentences(4),
                   },
                 ],
@@ -181,23 +158,8 @@ export function generateMockArticles(numOfArticles) {
     };
     mockArticles = [...mockArticles, mockArticle];
   }
-  return mockArticles;
-}
 
-export async function getArticles() {
-  return articles;
-}
+  await Article.insertMany(mockArticles);
 
-export async function getArticle(slug) {
-  const articles = await getArticles();
-  return articles.find((article) => article.slug === slug);
-}
-
-export async function getCategoryArticles(category) {
-  const articles = await getArticles();
-  return articles.filter((article) => article.tags.includes(category));
-}
-
-export async function getRelatedArticles() {
-  return articles;
+  res.status(200).json(mockArticles);
 }
