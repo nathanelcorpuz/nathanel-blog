@@ -1,5 +1,5 @@
 import ArticlePage from "@/components/pages/article/ArticlePage";
-import { getArticle, getRelatedArticles } from "@/lib/mock/articles";
+import { getRelatedArticles } from "@/lib/mock/articles";
 
 export default function Article({ article, related }) {
   return <ArticlePage article={article} related={related} />;
@@ -13,7 +13,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const article = await getArticle(params.slug);
+  const res = await fetch(
+    `http://localhost:3000/api/article?slug=${params.slug}`
+  );
+  const article = await res.json();
   const related = await getRelatedArticles();
 
   return {

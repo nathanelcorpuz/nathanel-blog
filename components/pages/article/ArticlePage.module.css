@@ -47,14 +47,16 @@
   line-height: 1.5rem;
 }
 
-.article section > ol {
+.article section > ol,
+.article section > ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
   list-style-type: none;
 }
 
-.article section > ol > li {
+.article section > ol > li,
+.article section > ul > li {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -121,20 +123,23 @@
     line-height: 2rem;
   }
 
-  .article section > ol {
+  .article section > ol,
+  .article section > ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
     list-style-type: none;
   }
 
-  .article section > ol > li {
+  .article section > ol > li,
+  .article section > ul > li {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  .article section > ol > li > h4 {
+  .article section > ol > li > h4,
+  .article section > ul > li > h4 {
     font-size: 1.2rem;
     line-height: 2rem;
   }

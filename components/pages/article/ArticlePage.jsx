@@ -3,9 +3,12 @@ import styles from "./ArticlePage.module.css";
 import smiley from "@/public/smiley.png";
 import straighty from "@/public/straighty.png";
 import ArticlePreview from "@/components/common/article-preview/ArticlePreview";
+import DOMPurify from "isomorphic-dompurify";
+
+const purifier = (HTMLString) => DOMPurify.sanitize(HTMLString);
 
 export default function ArticlePage({ article, related = [] }) {
-  if (!article) return <p>loading</p>;
+  if (!article) return <h1>loading</h1>;
   return (
     <article className={styles.article}>
       <header>
@@ -25,50 +28,73 @@ export default function ArticlePage({ article, related = [] }) {
               </time>
             </p>
           </address>
-          <h2>{article.headline.subheading}</h2>
+          <h2
+            dangerouslySetInnerHTML={{
+              __html: purifier(article.headline.subheading),
+            }}
+          />
         </hgroup>
       </header>
       {article.sections.map((section) =>
         section.type === "standard" ? (
-          <section key={section.id}>
+          <section key={section._id}>
             <h3>{section.content.heading}</h3>
-            {section.content.paragraphs.map((paragraph) => (
-              <p key={paragraph.id}>{paragraph.text}</p>
+            {(section.content.paragraphs || []).map((paragraph) => (
+              <p
+                key={paragraph._id}
+                dangerouslySetInnerHTML={{ __html: purifier(paragraph.text) }}
+              />
             ))}
           </section>
         ) : section.type === "numbered_list" ? (
-          <section key={section.id}>
+          <section key={section._id}>
             <h3>{section.content.heading}</h3>
-            {section.content.paragraphs.map((paragraph) => (
-              <p key={paragraph.id}>{paragraph.text}</p>
+            {(section.content.paragraphs || []).map((paragraph) => (
+              <p
+                key={paragraph._id}
+                dangerouslySetInnerHTML={{ __html: purifier(paragraph.text) }}
+              />
             ))}
             <ol>
               {section.content.items.map((item, index) => (
-                <li key={item.id}>
+                <li key={item._id}>
                   <h4>
                     {index + 1}. {item.heading}
                   </h4>
                   {item.paragraphs.map((paragraph) => (
-                    <p key={paragraph.id}>{paragraph.text}</p>
+                    <p
+                      key={paragraph._id}
+                      dangerouslySetInnerHTML={{
+                        __html: purifier(paragraph.text),
+                      }}
+                    />
                   ))}
                 </li>
               ))}
             </ol>
           </section>
         ) : section.type === "bulleted_list" ? (
-          <section key={section.id}>
+          <section key={section._id}>
             <h3>{section.content.heading}</h3>
-            {section.content.paragraphs.map((paragraph) => (
-              <p key={paragraph.id}>{paragraph.text}</p>
+            {(section.content.paragraphs || []).map((paragraph) => (
+              <p
+                key={paragraph._id}
+                dangerouslySetInnerHTML={{ __html: purifier(paragraph.text) }}
+              />
             ))}
             <ul>
               {section.content.items.map((item, index) => (
-                <li key={item.id}>
+                <li key={item._id}>
                   <h4>
                     {index + 1}. {item.heading}
                   </h4>
                   {item.paragraphs.map((paragraph) => (
-                    <p key={paragraph.id}>{paragraph.text}</p>
+                    <p
+                      key={paragraph._id}
+                      dangerouslySetInnerHTML={{
+                        __html: purifier(paragraph.text),
+                      }}
+                    />
                   ))}
                 </li>
               ))}
