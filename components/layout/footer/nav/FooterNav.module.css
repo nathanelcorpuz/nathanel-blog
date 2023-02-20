@@ -12,6 +12,7 @@
 .nav ul {
   display: flex;
   flex-direction: column;
+  list-style-type: none;
 }
 
 .nav > ul > li > a {

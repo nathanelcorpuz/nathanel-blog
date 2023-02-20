@@ -85,9 +85,7 @@ export default function ArticlePage({ article, related = [] }) {
             <ul>
               {section.content.items.map((item, index) => (
                 <li key={item._id}>
-                  <h4>
-                    {index + 1}. {item.heading}
-                  </h4>
+                  <h4>• {item.heading}</h4>
                   {item.paragraphs.map((paragraph) => (
                     <p
                       key={paragraph._id}
