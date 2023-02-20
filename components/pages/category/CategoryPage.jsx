@@ -19,7 +19,7 @@ export default function CategoryPage({ articles, category }) {
           <>
             {articles.map((article) => (
               <ArticlePreview
-                key={article.id}
+                key={article._id}
                 article={article}
                 view="category"
               />
