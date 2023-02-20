@@ -9,5 +9,5 @@ export default async function handler(req, res) {
   } else {
     await Article.findByIdAndUpdate(id, { $inc: { dislikes: 1 } });
   }
-  res.status(200).send(true);
+  res.status(200).json({ isLiked });
 }

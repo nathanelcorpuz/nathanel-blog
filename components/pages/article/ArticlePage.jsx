@@ -4,11 +4,44 @@ import smiley from "@/public/smiley.png";
 import straighty from "@/public/straighty.png";
 import ArticlePreview from "@/components/common/article-preview/ArticlePreview";
 import DOMPurify from "isomorphic-dompurify";
+import { format } from "date-fns";
+import { useState } from "react";
 
 const purifier = (HTMLString) => DOMPurify.sanitize(HTMLString);
 
 export default function ArticlePage({ article = {}, related = [] }) {
   if (!article || !related.length) return <h1>loading</h1>;
+
+  const [feedback, setFeedback] = useState({
+    likes: article.likes,
+    dislikes: article.dislikes,
+    voted: false,
+  });
+
+  const processUserFeedback = async ({ isLiked }) => {
+    const requestBody = {
+      id: article._id,
+      isLiked,
+    };
+    const res = await fetch("http://localhost:3000/api/test/feedback", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
+    const feedbackResponse = await res.json();
+    setFeedback((prevFeedback) => {
+      const clone = JSON.parse(JSON.stringify(prevFeedback));
+      const prevFeedbackClone = { ...clone, voted: true };
+      if (feedbackResponse.isLiked) {
+        return { ...prevFeedbackClone, likes: ++prevFeedbackClone.likes };
+      } else {
+        return { ...prevFeedbackClone, dislikes: ++prevFeedbackClone.dislikes };
+      }
+    });
+  };
+
   return (
     <article className={styles.article}>
       <header>
@@ -24,7 +57,7 @@ export default function ArticlePage({ article = {}, related = [] }) {
             </a>
             <p>
               <time dateTime={article.dates.published}>
-                {article.dates.published}
+                {format(new Date(article.dates.published), "MMMM d, yyyy")}
               </time>
             </p>
           </address>
@@ -105,14 +138,32 @@ export default function ArticlePage({ article = {}, related = [] }) {
         <p>{article.summary}</p>
       </section>
       <section id="feedback" className={styles.feedback}>
-        <button aria-roledescription="button to indicate positive feedback about the article above">
-          <Image src={smiley} alt="a smiley face icon" />
-          <span>5</span>
-        </button>
-        <button aria-roledescription="button to indicate negative feedback about the article above">
-          <Image src={straighty} alt="a straight face icon" />
-          <span>5</span>
-        </button>
+        {feedback.voted ? (
+          <p>
+            Thank you for your vote! Feel free to send me an email if you want
+            to send me your thoughts via{" "}
+            <a href="mailto:nathanelwebdesign@gmail.com">
+              nathanelwebdesign@gmail.com
+            </a>
+          </p>
+        ) : (
+          <>
+            <button
+              onClick={() => processUserFeedback({ isLiked: true })}
+              aria-roledescription="button to like article"
+            >
+              <Image src={smiley} alt="a smiley face icon" />
+              <span>{feedback.likes}</span>
+            </button>
+            <button
+              onClick={() => processUserFeedback({ isLiked: false })}
+              aria-roledescription="button to dislike article"
+            >
+              <Image src={straighty} alt="a straight face icon" />
+              <span>{feedback.dislikes}</span>
+            </button>
+          </>
+        )}
       </section>
       <aside id="related" className={styles.related}>
         <h3>Related</h3>
@@ -125,7 +176,9 @@ export default function ArticlePage({ article = {}, related = [] }) {
                 view="related"
               />
             ))}
-        <div>{/* <button>Show more</button> */}</div>
+        {/* <div>
+          <button>Show more</button>
+        </div> */}
       </aside>
     </article>
   );

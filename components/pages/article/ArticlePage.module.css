@@ -75,11 +75,16 @@
 }
 
 .feedback button {
-  max-width: 300px;
+  max-width: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+
+.feedback button span {
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .related {
@@ -97,6 +102,12 @@
 .related > div {
   display: flex;
   width: 100%;
+}
+
+@media (min-width: 350px) {
+  .feedback {
+    flex-direction: row !important;
+  }
 }
 
 @media (min-width: 1024px) {

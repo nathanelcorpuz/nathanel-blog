@@ -36,7 +36,6 @@ export default function HomePage({ previews = {} }) {
         )}
         <button
           onClick={async () => {
-            console.log("show more button clicked");
             const res = await fetch(
               `http://localhost:3000/api/home-show-more?page=${
                 showMoreResults.currentPage + 1

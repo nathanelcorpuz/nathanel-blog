@@ -11,20 +11,15 @@ import getRelated from "@/helpers/getRelated";
 export default async function handler(req, res) {
   await connectMongo();
   const { query, method, body } = req;
-  try {
-    switch (method) {
-      case "POST":
-        const newArticle = await createArticle(body);
-        res.status(200).json(newArticle);
-        break;
-      case "GET":
-        const article = await Article.findOne({ slug: query.slug });
-        const related = await getRelated(article);
-        res.status(200).json({ article, related });
-        break;
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("error");
+  switch (method) {
+    case "POST":
+      const newArticle = await createArticle(body);
+      res.status(200).json(newArticle);
+      break;
+    case "GET":
+      const article = await Article.findOne({ slug: query.slug });
+      const related = await getRelated(article);
+      res.status(200).json({ article, related });
+      break;
   }
 }
