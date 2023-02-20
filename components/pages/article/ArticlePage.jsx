@@ -104,7 +104,7 @@ export default function ArticlePage({ article, related = [] }) {
         <h3>Summary</h3>
         <p>{article.summary}</p>
       </section>
-      <section id="feedback" className={styles.feedback}>
+      {/* <section id="feedback" className={styles.feedback}>
         <button aria-roledescription="button to indicate positive feedback about the article above">
           <Image src={smiley} alt="a smiley face icon" />
           <span>5</span>
@@ -113,7 +113,7 @@ export default function ArticlePage({ article, related = [] }) {
           <Image src={straighty} alt="a straight face icon" />
           <span>5</span>
         </button>
-      </section>
+      </section> */}
       <aside id="related" className={styles.related}>
         <h3>Related</h3>
         {!related.length
