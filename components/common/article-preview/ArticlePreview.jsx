@@ -1,3 +1,4 @@
+import placeholderImg from "@/public/placeholder/placeholder-1.jpg";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "./ArticlePreview.module.css";
@@ -9,7 +10,7 @@ export default function ArticlePreview({ article, view = "" }) {
       className={`${styles.article} ${view ? styles[view] : ""}`}
       onClick={() => router.push(`/article/${article.slug}`)}
     >
-      <Image src={article.img} alt={article.imgAlt} />
+      <Image src={placeholderImg} alt={article.imgAlt} />
       <hgroup>
         <h2>{article.headline.heading}</h2>
         <address>

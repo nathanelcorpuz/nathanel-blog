@@ -2,7 +2,7 @@ import Head from "next/head";
 import HomePage from "@/components/pages/home/HomePage";
 import { getArticles } from "@/lib/mock/articles";
 
-export default function Home({ articles }) {
+export default function Home({ previews }) {
   return (
     <>
       <Head>
@@ -14,14 +14,13 @@ export default function Home({ articles }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage articles={articles} />
+      <HomePage previews={previews} />
     </>
   );
 }
 
 export async function getStaticProps() {
-  // get home articles
-  // returns an object that contains featured, latest, and initialAll
-  const articles = await getArticles();
-  return { props: { articles } };
+  const previewsRes = await fetch("http://localhost:3000/api/test/home-articles");
+  const previews = await previewsRes.json();
+  return { props: { previews } };
 }
