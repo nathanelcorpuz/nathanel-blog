@@ -126,7 +126,7 @@ export default function ArticlePage({ article, related = [] }) {
               />
             ))}
         <div>
-          <button>Show more</button>
+          {/* <button>Show more</button> */}
         </div>
       </aside>
     </article>
