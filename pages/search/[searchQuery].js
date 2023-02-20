@@ -1,5 +1,4 @@
 import SearchPage from "@/components/pages/search/SearchPage";
-import { getArticles } from "@/lib/mock/articles";
 
 export default function Search({ searchQuery, articles }) {
   return <SearchPage searchQuery={searchQuery} articles={articles} />;
@@ -11,7 +10,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { searchQuery } = params;
-
-  const articles = await getArticles();
+  const res = await fetch(`http://localhost:3000/api/search?q=${searchQuery}`);
+  const articles = await res.json();
   return { props: { articles, searchQuery } };
 }

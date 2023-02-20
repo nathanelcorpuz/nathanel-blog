@@ -27,7 +27,7 @@ export default function SearchPage({ articles, searchQuery }) {
                 view="category"
               />
             ))}
-            <button>Show more</button>
+            {/* <button>Show more</button> */}
           </>
         )}
       </div>

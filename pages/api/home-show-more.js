@@ -8,7 +8,6 @@ export default async function handler(req, res) {
   const page = +req.query.page || 1;
   const startIndex =
     page === 1 ? initialAllCount : (page - 1) * pageSize + initialAllCount;
-  const endIndex = startIndex + pageSize;
 
   try {
     const articles = await Article.find().skip(startIndex).limit(pageSize);
