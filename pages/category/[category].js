@@ -5,7 +5,10 @@ export default function Category({ articles, category }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true };
+  const paths = ["business", "tips", "career", "technical"].map((category) => ({
+    params: { category },
+  }));
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
