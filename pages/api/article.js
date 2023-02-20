@@ -1,6 +1,7 @@
 import createArticle from "@/helpers/createArticle";
 import connectMongo from "@/helpers/connectMongo";
 import Article from "@/models/article";
+import getRelated from "@/helpers/getRelated";
 
 /**
  * @param {import('next').NextApiRequest} req
@@ -17,7 +18,8 @@ export default async function handler(req, res) {
       break;
     case "GET":
       const article = await Article.findOne({ slug: query.slug });
-      res.status(200).json(article);
+      const related = await getRelated(article.tags);
+      res.status(200).json({ article, related });
       break;
   }
 }

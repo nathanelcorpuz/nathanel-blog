@@ -7,8 +7,8 @@ import DOMPurify from "isomorphic-dompurify";
 
 const purifier = (HTMLString) => DOMPurify.sanitize(HTMLString);
 
-export default function ArticlePage({ article, related = [] }) {
-  if (!article) return <h1>loading</h1>;
+export default function ArticlePage({ article = {}, related = [] }) {
+  if (!article || !related.length) return <h1>loading</h1>;
   return (
     <article className={styles.article}>
       <header>
@@ -104,7 +104,7 @@ export default function ArticlePage({ article, related = [] }) {
         <h3>Summary</h3>
         <p>{article.summary}</p>
       </section>
-      {/* <section id="feedback" className={styles.feedback}>
+      <section id="feedback" className={styles.feedback}>
         <button aria-roledescription="button to indicate positive feedback about the article above">
           <Image src={smiley} alt="a smiley face icon" />
           <span>5</span>
@@ -113,21 +113,19 @@ export default function ArticlePage({ article, related = [] }) {
           <Image src={straighty} alt="a straight face icon" />
           <span>5</span>
         </button>
-      </section> */}
+      </section>
       <aside id="related" className={styles.related}>
         <h3>Related</h3>
         {!related.length
           ? null
           : related.map((article) => (
               <ArticlePreview
-                key={article.id}
+                key={article._id}
                 article={article}
                 view="related"
               />
             ))}
-        <div>
-          {/* <button>Show more</button> */}
-        </div>
+        <div>{/* <button>Show more</button> */}</div>
       </aside>
     </article>
   );
