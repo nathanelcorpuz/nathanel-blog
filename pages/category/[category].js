@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { category } = params;
   const res = await fetch(
-    `http://localhost:3000/api/test/category?category=${category}`
+    `http://localhost:3000/api/category?category=${category}`
   );
   const articles = await res.json();
   return {

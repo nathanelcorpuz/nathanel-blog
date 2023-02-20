@@ -5,7 +5,6 @@ import { useState } from "react";
 export default function HomePage({ previews = {} }) {
   const [showMoreResults, setShowMoreResults] = useState({});
   const [allPreviews, setAllPreviews] = useState([...previews.all]);
-
   return (
     <div className={styles.wrapper}>
       <section id="featured" className={styles.featured}>
@@ -39,7 +38,7 @@ export default function HomePage({ previews = {} }) {
           onClick={async () => {
             console.log("show more button clicked");
             const res = await fetch(
-              `http://localhost:3000/api/test/home-show-more?page=${
+              `http://localhost:3000/api/home-show-more?page=${
                 showMoreResults.currentPage + 1
               }`
             );
