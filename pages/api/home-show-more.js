@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       totalPages: Math.ceil(totalArticles / pageSize),
     };
 
-    res.json(response); // Return the response as JSON
+    res.json(response); 
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

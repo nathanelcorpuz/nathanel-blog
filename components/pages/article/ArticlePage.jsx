@@ -21,7 +21,7 @@ export default function ArticlePage({ article = {}, related = [] }) {
       id: article._id,
       isLiked,
     };
-    const res = await fetch("http://localhost:3000/api/test/feedback", {
+    const res = await fetch("http://localhost:3000/api/feedback", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
