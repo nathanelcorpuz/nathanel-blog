@@ -1,4 +1,5 @@
 import placeholderImg from "@/public/placeholder/placeholder-1.jpg";
+import { format } from "date-fns";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "./ArticlePreview.module.css";
@@ -23,7 +24,7 @@ export default function ArticlePreview({ article, view = "" }) {
           </a>
           <p>
             <time dateTime={article.dates.published}>
-              {article.dates.published}
+              {format(new Date(article.dates.published), "MMMM d, yyyy")}
             </time>
           </p>
         </address>
