@@ -33,7 +33,7 @@ export default async function handler(req, res) {
         }),
       },
       headline: {
-        heading: lorem.generateWords(7),
+        heading,
         subheading: lorem.generateSentences(3),
       },
       sections: [
@@ -155,6 +155,8 @@ export default async function handler(req, res) {
       ],
       summary: lorem.generateSentences(6),
       tags: [lorem.generateWords(1), lorem.generateWords(1)],
+      likes: 3,
+      dislikes: 3,
     };
     mockArticles = [...mockArticles, mockArticle];
   }

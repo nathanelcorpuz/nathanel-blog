@@ -1,6 +1,5 @@
 import Head from "next/head";
 import HomePage from "@/components/pages/home/HomePage";
-import { getArticles } from "@/lib/mock/articles";
 
 export default function Home({ previews }) {
   return (
@@ -20,9 +19,7 @@ export default function Home({ previews }) {
 }
 
 export async function getStaticProps() {
-  const previewsRes = await fetch(
-    "http://localhost:3000/api/home-articles"
-  );
+  const previewsRes = await fetch("http://localhost:3000/api/home-articles");
   const previews = await previewsRes.json();
   return { props: { previews } };
 }

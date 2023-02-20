@@ -1,7 +1,7 @@
 import Article from "@/models/article";
 
-export default async function getRelated(tags) {
-  const articles = await getRelatedArticles(tags);
+export default async function getRelated(activeArticle) {
+  const articles = await getRelatedArticles(activeArticle.tags);
 
   const flattenedArticles = articles.flat();
 
@@ -11,7 +11,11 @@ export default async function getRelated(tags) {
     flattenedArticles.find((article) => article._id.toString() === id)
   );
 
-  return uniqueArticles;
+  const filteredArticles = uniqueArticles.filter(
+    (article) => article._id.toString() !== activeArticle._id.toString()
+  );
+
+  return filteredArticles;
 }
 
 async function getRelatedArticles(tags) {

@@ -37,6 +37,8 @@ const articleSchema = new Schema({
   summary: { type: String, required: true },
   tags: { type: [String], required: true },
   isFeatured: { type: Boolean, default: false },
+  likes: Number,
+  dislikes: Number,
 });
 
 const Article = models.Article || model("Article", articleSchema);
