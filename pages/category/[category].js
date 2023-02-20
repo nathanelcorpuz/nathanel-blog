@@ -1,5 +1,4 @@
 import CategoryPage from "@/components/pages/category/CategoryPage";
-import { getCategoryArticles } from "@/lib/mock/articles";
 
 export default function Category({ articles, category }) {
   return <CategoryPage articles={articles} category={category} />;
@@ -11,7 +10,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { category } = params;
-  const articles = await getCategoryArticles(category);
+  const res = await fetch(
+    `http://localhost:3000/api/test/category?category=${category}`
+  );
+  const articles = await res.json();
   return {
     props: { articles, category },
   };
