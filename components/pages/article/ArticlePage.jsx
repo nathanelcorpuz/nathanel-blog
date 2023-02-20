@@ -10,8 +10,6 @@ import { useState } from "react";
 const purifier = (HTMLString) => DOMPurify.sanitize(HTMLString);
 
 export default function ArticlePage({ article = {}, related = [] }) {
-  if (!article || !related.length) return <h1>loading</h1>;
-
   const [feedback, setFeedback] = useState({
     likes: article.likes,
     dislikes: article.dislikes,

@@ -18,6 +18,10 @@ export default async function handler(req, res) {
       break;
     case "GET":
       const article = await Article.findOne({ slug: query.slug });
+      if (!article) {
+        res.status(404).send(false);
+        break;
+      }
       const related = await getRelated(article);
       res.status(200).json({ article, related });
       break;
