@@ -24,7 +24,7 @@ export default function CategoryPage({ articles, category }) {
                 view="category"
               />
             ))}
-            <button>Show more</button>
+            {/* <button>Show more</button> */}
           </>
         )}
       </div>
