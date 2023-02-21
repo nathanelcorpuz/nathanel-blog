@@ -34,5 +34,4 @@ yarn-error.log*
 .vercel
 
 # admin
-/pages/api/admin/login.js
 /helpers/private
