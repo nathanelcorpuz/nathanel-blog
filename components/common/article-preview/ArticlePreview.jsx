@@ -1,4 +1,3 @@
-import placeholderImg from "@/public/placeholder/placeholder-1.jpg";
 import { format } from "date-fns";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -6,12 +5,18 @@ import styles from "./ArticlePreview.module.css";
 
 export default function ArticlePreview({ article, view = "" }) {
   const router = useRouter();
+  const src = `http://localhost:3000/api/article/image?key=${article.image.key}`;
   return (
     <article
       className={`${styles.article} ${view ? styles[view] : ""}`}
       onClick={() => router.push(`/article/${article.slug}`)}
     >
-      <Image src={placeholderImg} alt={article.imgAlt} />
+      <Image
+        src={src}
+        width={500}
+        height={250}
+        alt={article.image.alt}
+      />
       <hgroup>
         <h2>{article.headline.heading}</h2>
         <address>

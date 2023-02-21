@@ -12,7 +12,7 @@ export default function HomePage({ previews = {} }) {
         {!previews ? (
           <p>loading...</p>
         ) : (
-          <ArticlePreview article={previews.featured} />
+          <ArticlePreview article={{ ...previews.featured }} />
         )}
       </section>
       <section id="latest" className={styles.latest}>

@@ -20,10 +20,16 @@ const sectionSchema = new Schema({
   content: contentSchema,
 });
 
+const imageSchema = new Schema({
+  key: { type: String, required: true },
+  alt: { type: String, required: true },
+  owner: { type: String, required: true },
+  ownerUrl: { type: String, required: true },
+});
+
 const articleSchema = new Schema({
   slug: String,
-  imgPath: String,
-  imgAlt: String,
+  image: imageSchema,
   author: { type: String, required: true },
   dates: {
     published: Date,
@@ -37,8 +43,8 @@ const articleSchema = new Schema({
   summary: { type: String, required: true },
   tags: { type: [String], required: true },
   isFeatured: { type: Boolean, default: false },
-  likes: Number,
-  dislikes: Number,
+  likes: { type: Number, default: 0 },
+  dislikes: { type: Number, default: 0 },
 });
 
 const Article = models.Article || model("Article", articleSchema);

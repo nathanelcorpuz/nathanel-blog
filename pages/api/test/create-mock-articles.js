@@ -23,8 +23,12 @@ export default async function handler(req, res) {
     const heading = lorem.generateWords(7);
     const mockArticle = {
       slug: slug(heading),
-      img: "",
-      imgAlt: "placeholder image",
+      image: {
+        key: "placeholder.jpg",
+        alt: "clear wall with a hanging clock and a table with decorations",
+        owner: "Samantha Gades",
+        ownerUrl: "https://unsplash.com/@srosinger3997",
+      },
       author: lorem.generateWords(2),
       dates: {
         published: randomDate({
