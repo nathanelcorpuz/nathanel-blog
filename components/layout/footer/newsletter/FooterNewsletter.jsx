@@ -1,5 +1,5 @@
 import Image from "next/image";
-import sendIcon from "@/public/send-icon.png";
+import sendIcon from "@/public/icons/send-icon.png";
 import styles from "./FooterNewsletter.module.css";
 
 export default function FooterNewsletter() {

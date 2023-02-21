@@ -19,7 +19,7 @@ export default function Home({ previews }) {
 }
 
 export async function getStaticProps() {
-  const previewsRes = await fetch("http://localhost:3000/api/home-articles");
-  const previews = await previewsRes.json();
+  const res = await fetch("http://localhost:3000/api/home-articles");
+  const previews = await res.json();
   return { props: { previews } };
 }

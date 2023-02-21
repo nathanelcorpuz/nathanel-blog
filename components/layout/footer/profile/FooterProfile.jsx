@@ -1,4 +1,4 @@
-import logoDark from "@/public/nathanel-corpuz-logo-dark.png";
+import logoDark from "@/public/logos/nathanel-corpuz-logo-dark.png";
 import Image from "next/image";
 import styles from "./FooterProfile.module.css";
 

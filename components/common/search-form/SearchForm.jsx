@@ -1,6 +1,6 @@
 import styles from "./SearchForm.module.css";
 import Image from "next/image";
-import searchIcon from "@/public/search-icon.png";
+import searchIcon from "@/public/icons/search-icon.png";
 import { useRouter } from "next/router";
 import { useState } from "react";
 

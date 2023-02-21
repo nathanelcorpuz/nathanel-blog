@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import logo from "@/public/nathanel-corpuz-logo.png";
+import logo from "@/public/logos/nathanel-corpuz-logo.png";
 import Image from "next/image";
 import Nav from "./nav/Nav";
 

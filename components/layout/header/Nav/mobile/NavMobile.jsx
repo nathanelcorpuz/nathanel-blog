@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
 import styles from "./NavMobile.module.css";
-import searchIcon from "@/public/search-icon.png";
 import getHeaderLinks from "@/lib/links/header";
 import CustomLink from "@/components/common/custom-link/CustomLink";
 import Socials from "@/components/common/socials/Socials";
@@ -10,10 +7,8 @@ import SearchForm from "@/components/common/search-form/SearchForm";
 
 const links = getHeaderLinks();
 
-export default function NavMobileMenu(props) {
+export default function NavMobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchKey, setSearchKey] = useState("");
-  const router = useRouter();
   return (
     <>
       <button
