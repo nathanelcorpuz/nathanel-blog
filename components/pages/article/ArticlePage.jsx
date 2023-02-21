@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./ArticlePage.module.css";
-import smiley from "@/public/smiley.png";
-import straighty from "@/public/straighty.png";
+import smiley from "@/public/icons/smiley.png";
+import straighty from "@/public/icons/straighty.png";
 import ArticlePreview from "@/components/common/article-preview/ArticlePreview";
 import DOMPurify from "isomorphic-dompurify";
 import { format } from "date-fns";
@@ -21,7 +21,7 @@ export default function ArticlePage({ article = {}, related = [] }) {
       id: article._id,
       isLiked,
     };
-    const res = await fetch("http://localhost:3000/api/feedback", {
+    const res = await fetch("http://localhost:3000/api/article/feedback", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

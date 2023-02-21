@@ -6,7 +6,7 @@
 import connectMongo from "@/helpers/connectMongo";
 import Article from "@/models/article";
 
-export default async function handler(req, res) {
+export default async function previews(req, res) {
   await connectMongo();
   const featured = await Article.findOne({ isFeatured: true });
   const latest = await Article.find().limit(3).sort({ "dates.published": -1 });

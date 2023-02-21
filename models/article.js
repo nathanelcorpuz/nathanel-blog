@@ -22,7 +22,7 @@ const sectionSchema = new Schema({
 
 const articleSchema = new Schema({
   slug: String,
-  img: String,
+  imgPath: String,
   imgAlt: String,
   author: { type: String, required: true },
   dates: {

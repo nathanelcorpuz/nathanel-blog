@@ -1,10 +1,7 @@
-import Article from "@/models/article";
-import slug from "slug";
-import sanitizeArticle from "@/helpers/sanitizeArticle";
-
-// multer
 import multer from "multer";
 import path from "path";
+import Article from "@/models/article";
+import connectMongo from "@/helpers/connectMongo";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -35,20 +32,7 @@ app.post("/api/upload/cover", upload.single("myImage"), async (req, res) => {
   }
 });
 
-export default async function createArticle(article) {
-  const sluggedTitle = slug(article.headline.heading);
-  const sanitizedArticle = sanitizeArticle(article);
-
-  const newArticle = await Article.create({
-    ...sanitizedArticle,
-    slug: sluggedTitle,
-    img: "",
-    imgAlt: "placeholder image",
-    dates: {
-      published: new Date(article.dates.published),
-      edited: null,
-    },
-  });
-
-  return newArticle;
+export default async function handler(req, res) {
+  await connectMongo();
+  return;
 }
