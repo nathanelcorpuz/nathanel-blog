@@ -46,12 +46,8 @@ export default function ArticlePage({ article = {}, related = [] }) {
         <hgroup>
           <h1>{article.headline.heading}</h1>
           <address>
-            <a
-              href="https://twitter.com/nathanelcorpuz"
-              rel="author"
-              target="_blank"
-            >
-              {article.author}
+            <a href={article.author.profileUrl} rel="author" target="_blank">
+              {article.author.name}
             </a>
             <p>
               <time dateTime={article.dates.published}>
@@ -139,7 +135,7 @@ export default function ArticlePage({ article = {}, related = [] }) {
         {feedback.voted ? (
           <p>
             Thank you for your vote! Feel free to send me an email if you want
-            to send me your thoughts via{" "}
+            to reach out via{" "}
             <a href="mailto:nathanelwebdesign@gmail.com">
               nathanelwebdesign@gmail.com
             </a>

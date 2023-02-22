@@ -20,6 +20,16 @@ const sectionSchema = new Schema({
   content: contentSchema,
 });
 
+const headlineSchema = new Schema({
+  heading: { type: String, required: true },
+  subheading: { type: String, required: true },
+});
+
+const datesSchema = new Schema({
+  published: Date,
+  edited: Date,
+});
+
 const imageSchema = new Schema({
   key: { type: String, required: true },
   alt: { type: String, required: true },
@@ -27,18 +37,17 @@ const imageSchema = new Schema({
   ownerUrl: { type: String, required: true },
 });
 
+const authorSchema = new Schema({
+  name: { type: String, required: true },
+  profileUrl: String,
+});
+
 const articleSchema = new Schema({
   slug: String,
+  author: authorSchema,
   image: imageSchema,
-  author: { type: String, required: true },
-  dates: {
-    published: Date,
-    edited: Date,
-  },
-  headline: {
-    heading: { type: String, required: true },
-    subheading: { type: String, required: true },
-  },
+  dates: datesSchema,
+  headline: headlineSchema,
   sections: [sectionSchema],
   summary: { type: String, required: true },
   tags: { type: [String], required: true },

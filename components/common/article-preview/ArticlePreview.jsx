@@ -11,21 +11,12 @@ export default function ArticlePreview({ article, view = "" }) {
       className={`${styles.article} ${view ? styles[view] : ""}`}
       onClick={() => router.push(`/article/${article.slug}`)}
     >
-      <Image
-        src={src}
-        width={500}
-        height={250}
-        alt={article.image.alt}
-      />
+      <Image src={src} width={500} height={250} alt={article.image.alt} />
       <hgroup>
         <h2>{article.headline.heading}</h2>
         <address>
-          <a
-            href="https://twitter.com/nathanelcorpuz"
-            rel="author"
-            target="_blank"
-          >
-            {article.author}
+          <a href={article.author.profileUrl} rel="author" target="_blank">
+            {article.author.name}
           </a>
           <p>
             <time dateTime={article.dates.published}>

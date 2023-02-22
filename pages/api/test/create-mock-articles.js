@@ -29,7 +29,10 @@ export default async function handler(req, res) {
         owner: "Samantha Gades",
         ownerUrl: "https://unsplash.com/@srosinger3997",
       },
-      author: lorem.generateWords(2),
+      author: {
+        name: lorem.generateWords(2),
+        profileUrl: "https://twitter.com/nathanelcorpuz",
+      },
       dates: {
         published: randomDate({
           from: new Date("2020-01-01"),
