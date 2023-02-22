@@ -1,7 +1,11 @@
 import styles from "./ComponentEditor.module.css";
 import { useState } from "react";
 
-export default function ComponentEditor({ id, retrievedValue, placeholder }) {
+export default function ComponentEditor({
+  id = "",
+  retrievedValue = "",
+  stateId,
+}) {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(retrievedValue || id);
 

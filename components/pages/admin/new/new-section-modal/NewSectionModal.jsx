@@ -1,13 +1,11 @@
 import { NewArticleContext } from "@/contexts/NewArticleContext";
 import { useContext, useState } from "react";
 import styles from "./NewSectionModal.module.css";
-import NewListSectionForm from "./numbered/NewListSectionForm";
-import NewStandardSectionForm from "./standard/NewStandardSectionForm";
 
 export default function NewSectionModal({ modalState }) {
   const [open, setOpen] = modalState;
   const [sectionType, setSectionType] = useState("standard");
-  const { state, dispatch } = useContext(NewArticleContext);
+  const { dispatch } = useContext(NewArticleContext);
   return (
     <>
       <button onClick={() => setOpen(true)}>Add section</button>

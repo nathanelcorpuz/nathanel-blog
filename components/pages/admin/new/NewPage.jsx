@@ -3,7 +3,6 @@ import { useContext, useState } from "react";
 import ComponentEditor from "./component-editor/ComponentEditor";
 import NewSectionModal from "./new-section-modal/NewSectionModal";
 import styles from "./NewPage.module.css";
-import { v4 as uuidv4 } from "uuid";
 
 export default function NewPage() {
   const { state } = useContext(NewArticleContext);
@@ -15,23 +14,39 @@ export default function NewPage() {
       <ComponentEditor id="author" />
       <ComponentEditor id="date" />
       <ComponentEditor id="paragraph" />
-      {state.sections.map((section, index) => {
+      {state.sections.map((section) => {
         if (section.type === "bulleted") {
           return (
-            <div key={uuidv4()}>
+            <div key={section.id}>
               <ComponentEditor
                 id="heading2"
                 retrievedValue={section.content.heading}
+                stateId={section.id}
               />
-              {section.content.paragraphs.map(({ text }) => (
-                <p key={uuidv4()}>{text}</p>
+
+              {section.content.paragraphs.map(({ text, id }) => (
+                <ComponentEditor
+                  key={id}
+                  id="paragraph"
+                  retrievedValue={text}
+                  stateId={id}
+                />
               ))}
               <ul>
-                {section.content.items.map((item) => (
-                  <li key={uuidv4()}>
-                    <h3>{item.heading}</h3>
-                    {item.paragraphs.map(({ text }) => (
-                      <p key={uuidv4()}>{text}</p>
+                {section.content.items.map(({ heading, paragraphs, id }) => (
+                  <li key={id}>
+                    <ComponentEditor
+                      id="heading3"
+                      retrievedValue={heading}
+                      stateId={id}
+                    />
+                    {paragraphs.map(({ text, id }) => (
+                      <ComponentEditor
+                        key={id}
+                        id="paragraph"
+                        retrievedValue={text}
+                        stateId={id}
+                      />
                     ))}
                   </li>
                 ))}
@@ -41,17 +56,36 @@ export default function NewPage() {
         }
         if (section.type === "numbered") {
           return (
-            <div key={uuidv4()}>
-              <h2>{section.content.heading}</h2>
-              {section.content.paragraphs.map(({ text }) => (
-                <p key={uuidv4()}>{text}</p>
+            <div key={section.id}>
+              <ComponentEditor
+                id="heading2"
+                retrievedValue={section.content.heading}
+                stateId={section.id}
+              />
+
+              {section.content.paragraphs.map(({ text, id }) => (
+                <ComponentEditor
+                  key={id}
+                  id="paragraph"
+                  retrievedValue={text}
+                  stateId={id}
+                />
               ))}
               <ol>
-                {section.content.items.map((item) => (
-                  <li key={uuidv4()}>
-                    <h3>{item.heading}</h3>
-                    {item.paragraphs.map(({ text }) => (
-                      <p key={uuidv4()}>{text}</p>
+                {section.content.items.map(({ heading, paragraphs, id }) => (
+                  <li key={id}>
+                    <ComponentEditor
+                      id="heading3"
+                      retrievedValue={heading}
+                      stateId={id}
+                    />
+                    {paragraphs.map(({ text, id }) => (
+                      <ComponentEditor
+                        key={id}
+                        id="paragraph"
+                        retrievedValue={text}
+                        stateId={id}
+                      />
                     ))}
                   </li>
                 ))}
@@ -60,10 +94,19 @@ export default function NewPage() {
           );
         }
         return (
-          <div key={uuidv4()}>
-            <h2>{section.content.heading}</h2>
-            {section.content.paragraphs.map(({ text }) => (
-              <p key={uuidv4()}>{text}</p>
+          <div key={section.id}>
+            <ComponentEditor
+              id="heading2"
+              retrievedValue={section.content.heading}
+              stateId={section.id}
+            />
+            {section.content.paragraphs.map(({ text, id }) => (
+              <ComponentEditor
+                key={id}
+                id="paragraph"
+                retrievedValue={text}
+                stateId={id}
+              />
             ))}
           </div>
         );

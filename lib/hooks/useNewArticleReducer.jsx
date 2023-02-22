@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { useReducer } from "react";
 
 const initialState = {
@@ -61,11 +62,13 @@ function reducer(state, action) {
       const stateClone = JSON.parse(JSON.stringify(state));
       if (sectionType === "standard") {
         stateClone.sections.push({
+          id: uuidv4(),
           type: sectionType,
           content: {
             heading: "Sample heading",
             paragraphs: [
               {
+                id: uuidv4(),
                 text: "Sample paragraph",
               },
             ],
@@ -78,19 +81,23 @@ function reducer(state, action) {
 
       if (sectionType === "numbered" || sectionType === "bulleted") {
         stateClone.sections.push({
+          id: uuidv4(),
           type: sectionType,
           content: {
             heading: "Sample heading",
             paragraphs: [
               {
+                id: uuidv4(),
                 text: "Sample paragraph",
               },
             ],
             items: [
               {
+                id: uuidv4(),
                 heading: "Sample item 1",
                 paragraphs: [
                   {
+                    id: uuidv4(),
                     text: "Sample item 1 paragraph 1",
                   },
                 ],
@@ -106,6 +113,8 @@ function reducer(state, action) {
     }
     case "add_paragraphs": {
       const stateClone = JSON.parse(JSON.stringify(state));
+    }
+    case "add_items": {
     }
     case "add_tags": {
       const stateClone = JSON.parse(JSON.stringify(state));
