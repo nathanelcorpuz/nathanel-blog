@@ -1,0 +1,14 @@
+.div_not_editing:hover {
+  background: #ececec;
+  cursor: pointer;
+}
+
+.div_editing form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.div_editing form input {
+  width: 100%;
+}

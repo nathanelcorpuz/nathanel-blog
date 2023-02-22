@@ -1,4 +1,4 @@
-.layout nav {
+.layout > nav {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -9,21 +9,21 @@
   height: 100%;
 }
 
-.layout nav menu {
+.layout > nav menu {
   list-style-type: none;
 }
 
-.layout nav menu li {
+.layout > nav menu li {
   border-bottom: 1px solid rgb(45, 45, 45);
 }
 
-.layout nav menu li:hover {
+.layout > nav menu li:hover {
   background: rgb(45, 45, 45);
   cursor: pointer;
 }
 
-.layout nav menu li a,
-.layout nav menu li p {
+.layout > nav menu li a,
+.layout > nav menu li p {
   text-decoration: none;
   display: inline-block;
   padding: 20px;
@@ -31,7 +31,7 @@
   height: 100%;
 }
 
-.layout header {
+.layout > header {
   position: fixed;
   right: 0;
   left: 200px;
@@ -44,6 +44,6 @@
   padding: 20px;
 }
 
-.layout main {
+.layout > main {
   padding: 90px 40px 40px 240px;
 }
