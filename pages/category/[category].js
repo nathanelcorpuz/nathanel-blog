@@ -1,3 +1,5 @@
+import Layout from "@/components/layout/main/Layout";
+import VisitorLayout from "@/components/layout/visitor/VisitorLayout";
 import CategoryPage from "@/components/pages/category/CategoryPage";
 
 export default function Category({ articles, category }) {
@@ -21,3 +23,11 @@ export async function getStaticProps({ params }) {
     props: { articles, category },
   };
 }
+
+Category.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      <VisitorLayout>{page}</VisitorLayout>
+    </Layout>
+  );
+};

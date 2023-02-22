@@ -1,3 +1,5 @@
+import Layout from "@/components/layout/main/Layout";
+import VisitorLayout from "@/components/layout/visitor/VisitorLayout";
 import ArticlePage from "@/components/pages/article/ArticlePage";
 import { useRouter } from "next/router";
 
@@ -33,3 +35,11 @@ export async function getStaticProps({ params }) {
     },
   };
 }
+
+Article.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      <VisitorLayout>{page}</VisitorLayout>
+    </Layout>
+  );
+};

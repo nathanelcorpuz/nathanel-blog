@@ -1,5 +1,7 @@
 import Head from "next/head";
 import HomePage from "@/components/pages/home/HomePage";
+import Layout from "@/components/layout/main/Layout";
+import VisitorLayout from "@/components/layout/visitor/VisitorLayout";
 
 export default function Home({ previews }) {
   return (
@@ -23,3 +25,11 @@ export async function getStaticProps() {
   const previews = await res.json();
   return { props: { previews } };
 }
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      <VisitorLayout>{page}</VisitorLayout>
+    </Layout>
+  );
+};
