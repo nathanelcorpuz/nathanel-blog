@@ -1,33 +1,5 @@
 import { useReducer } from "react";
 
-class Paragraph {
-  constructor(text) {
-    this.paragraph = text;
-  }
-}
-
-class Item {
-  constructor(heading, paragraphs) {
-    this.heading = heading;
-    this.paragraphs = paragraphs; // array of Paragraph objects
-  }
-}
-
-class Content {
-  constructor(heading, paragraphs, items) {
-    this.heading = heading;
-    this.paragraphs = paragraphs; // array of Paragraph objects
-    this.items = items; // array of Item objects
-  }
-}
-
-class Section {
-  constructor(type, content) {
-    this.type = type; // standard, numbered, bulleted
-    this.content = content;
-  }
-}
-
 const initialState = {
   image: {
     key: "",
@@ -85,11 +57,55 @@ function reducer(state, action) {
       };
     }
     case "add_section": {
+      const sectionType = action.sectionType;
       const stateClone = JSON.parse(JSON.stringify(state));
-      stateClone.sections.push(action.newSection);
-      return {
-        ...stateClone,
-      };
+      if (sectionType === "standard") {
+        stateClone.sections.push({
+          type: sectionType,
+          content: {
+            heading: "Sample heading",
+            paragraphs: [
+              {
+                text: "Sample paragraph",
+              },
+            ],
+          },
+        });
+        return {
+          ...stateClone,
+        };
+      }
+
+      if (sectionType === "numbered" || sectionType === "bulleted") {
+        stateClone.sections.push({
+          type: sectionType,
+          content: {
+            heading: "Sample heading",
+            paragraphs: [
+              {
+                text: "Sample paragraph",
+              },
+            ],
+            items: [
+              {
+                heading: "Sample item 1",
+                paragraphs: [
+                  {
+                    text: "Sample item 1 paragraph 1",
+                  },
+                ],
+              },
+            ],
+          },
+        });
+        return {
+          ...stateClone,
+        };
+      }
+      throw new Error("Unknown section type...");
+    }
+    case "add_paragraphs": {
+      const stateClone = JSON.parse(JSON.stringify(state));
     }
     case "add_tags": {
       const stateClone = JSON.parse(JSON.stringify(state));

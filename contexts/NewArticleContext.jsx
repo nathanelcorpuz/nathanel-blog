@@ -1,5 +1,5 @@
 import useNewArticleReducer from "@/lib/hooks/useNewArticleReducer";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export const NewArticleContext = createContext();
 

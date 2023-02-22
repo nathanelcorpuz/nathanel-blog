@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { NewArticleContext } from "@/contexts/NewArticleContext";
+import { useContext, useState } from "react";
 import styles from "./NewSectionModal.module.css";
+import NewListSectionForm from "./numbered/NewListSectionForm";
 import NewStandardSectionForm from "./standard/NewStandardSectionForm";
 
 export default function NewSectionModal({ modalState }) {
   const [open, setOpen] = modalState;
-  const [type, setType] = useState("standard");
+  const [sectionType, setSectionType] = useState("standard");
+  const { state, dispatch } = useContext(NewArticleContext);
   return (
     <>
       <button onClick={() => setOpen(true)}>Add section</button>
@@ -14,11 +17,21 @@ export default function NewSectionModal({ modalState }) {
           className={styles.new_section_modal_wrapper}
         >
           <section onClick={(e) => e.stopPropagation()}>
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                dispatch({
+                  type: "add_section",
+                  sectionType,
+                });
+                setOpen(false);
+              }}
+            >
               <div>
-                <label for="section">Add new section</label>
+                <label htmlFor="section">Add a new section</label>
                 <select
-                  onChange={(e) => setType(e.target.value)}
+                  onChange={(e) => setSectionType(e.target.value)}
+                  value={sectionType}
                   name="section"
                   id="section"
                 >
@@ -27,9 +40,7 @@ export default function NewSectionModal({ modalState }) {
                   <option value="bulleted">bulleted</option>
                 </select>
               </div>
-              {type === "standard" && <NewStandardSectionForm />}
-              {/* {type === "numbered" && <NewStandardSectionForm />}
-              {type === "bulleted" && <NewStandardSectionForm />} */}
+              <button>Add</button>
             </form>
           </section>
         </div>

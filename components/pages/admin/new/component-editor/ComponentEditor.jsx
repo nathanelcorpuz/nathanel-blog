@@ -1,9 +1,9 @@
 import styles from "./ComponentEditor.module.css";
 import { useState } from "react";
 
-export default function ComponentEditor({ id, placeholder }) {
+export default function ComponentEditor({ id, retrievedValue, placeholder }) {
   const [editing, setEditing] = useState(false);
-  const [value, setValue] = useState(id);
+  const [value, setValue] = useState(retrievedValue || id);
 
   let articleElement;
 
@@ -56,7 +56,7 @@ export default function ComponentEditor({ id, placeholder }) {
           />
         </form>
       ) : (
-        articleElement || id
+        articleElement || retrievedValue || id
       )}
     </div>
   );
