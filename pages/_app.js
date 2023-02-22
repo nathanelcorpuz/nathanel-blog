@@ -2,6 +2,7 @@ import "@/styles/reset.css";
 import "@/styles/base.css";
 
 import { Montserrat } from "@next/font/google";
+import AdminAuthProvider from "@/contexts/AdminAuthContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }) {
           font-family: ${montserrat.style.fontFamily};
         }
       `}</style>
-      {getLayout(<Component {...pageProps} />)}
+      <AdminAuthProvider>
+        {getLayout(<Component {...pageProps} />)}
+      </AdminAuthProvider>
     </>
   );
 }
