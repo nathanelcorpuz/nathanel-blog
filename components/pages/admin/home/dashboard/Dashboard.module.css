@@ -1,0 +1,26 @@
+.dashboard {
+  display: flex;
+  gap: 50px;
+}
+
+.dashboard section {
+  width: 500px;
+}
+
+.dashboard ul {
+  list-style-type: none;
+}
+
+.dashboard ul li {
+  margin-top: 20px;
+}
+
+.dashboard ul li a {
+  display: inline-block;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.dashboard ul li a:hover {
+  background: #ececec;
+}
