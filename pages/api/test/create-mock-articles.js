@@ -56,7 +56,7 @@ export default async function handler(req, res) {
           },
         },
         {
-          type: "numbered_list",
+          type: "numbered",
           content: {
             heading: lorem.generateWords(6),
             paragraphs: [
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
           },
         },
         {
-          type: "bulleted_list",
+          type: "bulleted",
           content: {
             heading: lorem.generateWords(6),
             paragraphs: [

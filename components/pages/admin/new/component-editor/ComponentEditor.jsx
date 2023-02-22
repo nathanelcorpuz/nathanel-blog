@@ -1,23 +1,33 @@
 import styles from "./ComponentEditor.module.css";
 import { useState } from "react";
 
-export default function ComponentEditor({ id }) {
+export default function ComponentEditor({ id, placeholder }) {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(id);
 
   let articleElement;
 
-  if (id === "heading") {
+  if (id === "heading1") {
     articleElement = <h1>{value}</h1>;
   }
-  if (id === "content-heading") {
+
+  if (id === "heading2") {
     articleElement = <h2>{value}</h2>;
   }
+
+  if (id === "heading3") {
+    articleElement = <h3>{value}</h3>;
+  }
+
+  if (id === "heading4") {
+    articleElement = <h4>{value}</h4>;
+  }
+
   if (id === "author" || id === "date") {
     articleElement = <small>{value}</small>;
   }
 
-  if (id === "subheading" || id === "paragraph") {
+  if (id === "paragraph") {
     articleElement = <p>{value}</p>;
   }
 
@@ -46,7 +56,7 @@ export default function ComponentEditor({ id }) {
           />
         </form>
       ) : (
-        articleElement || "Heading goes here"
+        articleElement || id
       )}
     </div>
   );

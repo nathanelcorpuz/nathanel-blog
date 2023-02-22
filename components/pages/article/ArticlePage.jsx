@@ -73,7 +73,7 @@ export default function ArticlePage({ article = {}, related = [] }) {
               />
             ))}
           </section>
-        ) : section.type === "numbered_list" ? (
+        ) : section.type === "numbered" ? (
           <section key={section._id}>
             <h3>{section.content.heading}</h3>
             {(section.content.paragraphs || []).map((paragraph) => (
@@ -100,7 +100,7 @@ export default function ArticlePage({ article = {}, related = [] }) {
               ))}
             </ol>
           </section>
-        ) : section.type === "bulleted_list" ? (
+        ) : section.type === "bulleted" ? (
           <section key={section._id}>
             <h3>{section.content.heading}</h3>
             {(section.content.paragraphs || []).map((paragraph) => (

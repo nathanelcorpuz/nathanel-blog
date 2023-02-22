@@ -3,6 +3,7 @@ import "@/styles/base.css";
 
 import { Montserrat } from "@next/font/google";
 import AdminAuthProvider from "@/contexts/AdminAuthContext";
+import NewArticleProvider from "@/contexts/NewArticleContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default function App({ Component, pageProps }) {
         }
       `}</style>
       <AdminAuthProvider>
-        {getLayout(<Component {...pageProps} />)}
+        <NewArticleProvider>
+          {getLayout(<Component {...pageProps} />)}
+        </NewArticleProvider>
       </AdminAuthProvider>
     </>
   );
