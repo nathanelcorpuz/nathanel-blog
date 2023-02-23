@@ -1,10 +1,16 @@
 .new_page {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   max-width: 800px;
+  gap: 20px;
 }
 
 .add_paragraph_btn {
   padding: 10px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

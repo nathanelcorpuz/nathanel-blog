@@ -3,6 +3,15 @@
   cursor: pointer;
 }
 
+.div_not_editing > * {
+  display: inline-block;
+  padding: 15px;
+}
+
+.div_not_editing > small {
+  padding: 5px 15px;
+}
+
 .div_editing form {
   display: flex;
   flex-direction: column;

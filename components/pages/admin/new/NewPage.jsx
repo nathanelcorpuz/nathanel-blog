@@ -10,28 +10,34 @@ export default function NewPage() {
   const modalState = useState(false);
   return (
     <div className={styles.new_page}>
-      <ComponentEditor id="heading" state={state.headline.heading} />
-      <ComponentEditor id="author" state={state.author.name} />
-      <ComponentEditor id="date" state={state.dates.published} />
-      <ComponentEditor id="subheading" state={state.headline.subheading} />
-      {state.sections.map((section) => {
-        if (section.type === "bulleted") {
+      <div>
+        <ComponentEditor id="heading" state={state.headline.heading} />
+        <ComponentEditor id="author" state={state.author.name} />
+        <ComponentEditor id="date" state={state.dates.published} />
+        <ComponentEditor id="subheading" state={state.headline.subheading} />
+      </div>
+      <div className={styles.sections}>
+        {state.sections.map((section) => {
+          if (section.type === "bulleted") {
+            return (
+              <NewSection key={section.id} type="bulleted" section={section} />
+            );
+          }
+          if (section.type === "numbered") {
+            return (
+              <NewSection key={section.id} type="numbered" section={section} />
+            );
+          }
           return (
-            <NewSection key={section.id} type="bulleted" section={section} />
+            <NewSection key={section.id} type="standard" section={section} />
           );
-        }
-        if (section.type === "numbered") {
-          return (
-            <NewSection key={section.id} type="numbered" section={section} />
-          );
-        }
-        return (
-          <NewSection key={section.id} type="standard" section={section} />
-        );
-      })}
+        })}
+      </div>
       <NewSectionModal modalState={modalState} />
-      <h2>Summary</h2>
-      <ComponentEditor id="summary" state={state.summary} />
+      <div>
+        <h2 style={{ padding: 15 }}>Summary</h2>
+        <ComponentEditor id="summary" state={state.summary} />
+      </div>
     </div>
   );
 }

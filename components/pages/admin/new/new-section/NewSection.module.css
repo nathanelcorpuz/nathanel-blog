@@ -1,4 +1,25 @@
+.section {
+  border: 1px solid gray;
+  padding: 20px;
+}
+
+.items {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.items > li {
+  padding: 10px;
+}
+
 .add_paragraph_btn {
+  width: 100%;
   padding: 10px;
   font-size: 0.9rem;
+}
+
+.add_paragraph_btn:hover {
+  transform: scale(1.01);
 }

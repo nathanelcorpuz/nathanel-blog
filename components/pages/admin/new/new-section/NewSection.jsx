@@ -9,7 +9,7 @@ export default function NewSection({ section, type }) {
   const { dispatch } = useContext(NewArticleContext);
   const { id: sectionId } = section;
   return (
-    <div key={sectionId}>
+    <div key={sectionId} className={styles.section}>
       <ComponentEditor
         id="heading2"
         state={section.content.heading}
@@ -38,7 +38,7 @@ export default function NewSection({ section, type }) {
         Add paragraph
       </button>
       {type === "numbered" && (
-        <ol>
+        <ol className={styles.items}>
           {section.content.items.map(({ heading, paragraphs, id: itemId }) => (
             <li key={itemId}>
               <ComponentEditor
@@ -77,7 +77,7 @@ export default function NewSection({ section, type }) {
         </ol>
       )}
       {type === "bulleted" && (
-        <ul>
+        <ul className={styles.items}>
           {section.content.items.map(({ heading, paragraphs, id: itemId }) => (
             <li key={itemId}>
               <ComponentEditor
