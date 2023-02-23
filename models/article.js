@@ -54,6 +54,7 @@ const articleSchema = new Schema({
   isFeatured: { type: Boolean, default: false },
   likes: { type: Number, default: 0 },
   dislikes: { type: Number, default: 0 },
+  published: { type: Boolean, default: false },
 });
 
 const Article = models.Article || model("Article", articleSchema);

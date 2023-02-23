@@ -1,0 +1,18 @@
+.modal {
+  position: fixed;
+  background: rgb(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal > section {
+  background: white;
+  width: 700px;
+  padding: 40px;
+  display: flex;
+}

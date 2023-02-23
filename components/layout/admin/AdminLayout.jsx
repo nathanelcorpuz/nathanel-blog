@@ -23,13 +23,7 @@ export default function AdminLayout({ children }) {
             <Link href="/admin">Home</Link>
           </li>
           <li>
-            <Link href="/admin/new">New</Link>
-          </li>
-          <li>
-            <Link href="/admin/drafts">Drafts</Link>
-          </li>
-          <li>
-            <Link href="/admin/publish">Publish</Link>
+            <Link href="/admin/article">Article</Link>
           </li>
         </menu>
         <menu>

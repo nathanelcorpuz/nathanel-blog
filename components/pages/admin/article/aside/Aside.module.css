@@ -1,0 +1,21 @@
+.aside {
+  width: 300px;
+  height: 750px;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+.aside > select {
+  padding: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.aside > menu {
+  list-style-type: none;
+}
+
+.aside > menu button {
+  width: 100%;
+  margin-top: 10px;
+}

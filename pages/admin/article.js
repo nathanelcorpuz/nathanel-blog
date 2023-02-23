@@ -1,12 +1,12 @@
 import AdminLayout from "@/components/layout/admin/AdminLayout";
 import Layout from "@/components/layout/main/Layout";
-import NewPage from "@/components/pages/admin/new/NewPage";
+import AdminArticlePage from "@/components/pages/admin/article/AdminArticlePage";
 
-export default function New() {
-  return <NewPage />;
+export default function Article() {
+  return <AdminArticlePage />;
 }
 
-New.getLayout = function getLayout(page) {
+Article.getLayout = function getLayout(page) {
   return (
     <Layout>
       <AdminLayout>{page}</AdminLayout>

@@ -1,16 +1,16 @@
+import styles from "./Preview.module.css";
 import { NewArticleContext } from "@/contexts/NewArticleContext";
 import { useContext, useState } from "react";
 import ComponentEditor from "./component-editor/ComponentEditor";
-import NewSectionModal from "./new-section-modal/NewSectionModal";
 import NewSection from "./new-section/NewSection";
-import styles from "./NewPage.module.css";
+import NewSectionModal from "./new-section-modal/NewSectionModal";
 
-export default function NewPage() {
+export default function Preview() {
   const { state } = useContext(NewArticleContext);
   const modalState = useState(false);
-  console.log(state);
+
   return (
-    <div className={styles.new_page}>
+    <div className={styles.preview}>
       <div>
         <ComponentEditor id="heading" state={state.headline.heading} />
         <ComponentEditor id="author" state={state.author.name} />
