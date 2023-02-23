@@ -21,6 +21,7 @@ export default function ComponentEditor({
     <div
       onClick={() => setEditing(true)}
       className={editing ? styles.div_editing : styles.div_not_editing}
+      style={{ paddingRight: id === "paragraph" ? 30 : 0}}
     >
       {editing ? (
         <form

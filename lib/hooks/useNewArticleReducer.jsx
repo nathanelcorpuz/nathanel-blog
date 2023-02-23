@@ -5,6 +5,8 @@ import addSection from "../utils/admin/new-article-reducer/addSection";
 import editHeading2 from "../utils/admin/new-article-reducer/editHeading2";
 import editParagraph from "../utils/admin/new-article-reducer/editParagraph";
 import editHeading3 from "../utils/admin/new-article-reducer/editHeading3";
+import deleteSection from "../utils/admin/new-article-reducer/deleteSection";
+import deleteParagraph from "../utils/admin/new-article-reducer/deleteParagraph";
 
 const initialState = {
   image: {
@@ -91,15 +93,10 @@ function reducer(state, action) {
       };
     }
     case "delete_section": {
-      const stateClone = JSON.parse(JSON.stringify(state));
-      const updatedSections = stateClone.sections.filter(
-        (section) => section.id !== action.sectionId
-      );
-
-      return {
-        ...stateClone,
-        sections: [...updatedSections],
-      };
+      return deleteSection(state, action);
+    }
+    case "delete_paragraph": {
+      return deleteParagraph(state, action);
     }
   }
   return state;

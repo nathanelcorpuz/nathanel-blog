@@ -17,13 +17,21 @@ export default function NewSection({ section, type }) {
         sectionId={sectionId}
       />
       {section.content.paragraphs.map(({ text, id: paragraphId }) => (
-        <ComponentEditor
-          key={paragraphId}
-          id="paragraph"
-          state={text}
-          sectionId={sectionId}
-          paragraphId={paragraphId}
-        />
+        <div key={paragraphId} className={styles.paragraph}>
+          <ComponentEditor
+            id="paragraph"
+            state={text}
+            sectionId={sectionId}
+            paragraphId={paragraphId}
+          />
+          <button
+            onClick={() => {
+              dispatch({ type: "delete_paragraph", paragraphId, sectionId });
+            }}
+          >
+            x
+          </button>
+        </div>
       ))}
       <button
         className={styles.add_paragraph_btn}
@@ -49,14 +57,27 @@ export default function NewSection({ section, type }) {
                 itemId={itemId}
               />
               {paragraphs.map(({ text, id: paragraphId }) => (
-                <ComponentEditor
-                  key={paragraphId}
-                  id="paragraph"
-                  state={text}
-                  sectionId={sectionId}
-                  itemId={itemId}
-                  paragraphId={paragraphId}
-                />
+                <div key={paragraphId} className={styles.paragraph}>
+                  <ComponentEditor
+                    id="paragraph"
+                    state={text}
+                    sectionId={sectionId}
+                    itemId={itemId}
+                    paragraphId={paragraphId}
+                  />
+                  <button
+                    onClick={() => {
+                      dispatch({
+                        type: "delete_paragraph",
+                        paragraphId,
+                        itemId,
+                        sectionId,
+                      });
+                    }}
+                  >
+                    x
+                  </button>
+                </div>
               ))}
               <button
                 className={styles.add_paragraph_btn}
@@ -88,14 +109,27 @@ export default function NewSection({ section, type }) {
                 itemId={itemId}
               />
               {paragraphs.map(({ text, id: paragraphId }) => (
-                <ComponentEditor
-                  key={paragraphId}
-                  id="paragraph"
-                  state={text}
-                  sectionId={sectionId}
-                  itemId={itemId}
-                  paragraphId={paragraphId}
-                />
+                <div key={paragraphId} className={styles.paragraph}>
+                  <ComponentEditor
+                    id="paragraph"
+                    state={text}
+                    sectionId={sectionId}
+                    itemId={itemId}
+                    paragraphId={paragraphId}
+                  />
+                  <button
+                    onClick={() => {
+                      dispatch({
+                        type: "delete_paragraph",
+                        paragraphId,
+                        itemId,
+                        sectionId,
+                      });
+                    }}
+                  >
+                    x
+                  </button>
+                </div>
               ))}
               <button
                 className={styles.add_paragraph_btn}
