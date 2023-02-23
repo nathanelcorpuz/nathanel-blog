@@ -1,10 +1,10 @@
 import { useReducer } from "react";
-import addParagraph from "../utils/new-article-reducer/addParagraph";
-import addItem from "../utils/new-article-reducer/addItem";
-import addSection from "../utils/new-article-reducer/addSection";
-import editHeading2 from "../utils/new-article-reducer/editHeading2";
-import editParagraph from "../utils/new-article-reducer/editParagraph";
-import editHeading3 from "../utils/new-article-reducer/editHeading3";
+import addParagraph from "../utils/admin/new-article-reducer/addParagraph";
+import addItem from "../utils/admin/new-article-reducer/addItem";
+import addSection from "../utils/admin/new-article-reducer/addSection";
+import editHeading2 from "../utils/admin/new-article-reducer/editHeading2";
+import editParagraph from "../utils/admin/new-article-reducer/editParagraph";
+import editHeading3 from "../utils/admin/new-article-reducer/editHeading3";
 
 const initialState = {
   image: {

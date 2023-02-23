@@ -8,9 +8,6 @@ import styles from "./NewPage.module.css";
 export default function NewPage() {
   const { state } = useContext(NewArticleContext);
   const modalState = useState(false);
-
-  console.log(state);
-
   return (
     <div className={styles.new_page}>
       <ComponentEditor id="heading" state={state.headline.heading} />
