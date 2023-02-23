@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { NewArticleContext } from "@/contexts/NewArticleContext";
 import AddItemBtn from "@/components/common/admin/AddItemBtn";
 import DeleteSectionBtn from "./delete-section-btn/DeleteSectionBtn";
+import DeleteItemBtn from "./delete-item-btn/DeleteItemBtn";
 
 export default function NewSection({ section, type }) {
   const { dispatch } = useContext(NewArticleContext);
@@ -93,6 +94,7 @@ export default function NewSection({ section, type }) {
               >
                 Add paragraph
               </button>
+              <DeleteItemBtn itemId={itemId} sectionId={sectionId} />
             </li>
           ))}
           <AddItemBtn dispatch={dispatch} sectionId={sectionId} />
@@ -145,6 +147,7 @@ export default function NewSection({ section, type }) {
               >
                 Add paragraph
               </button>
+              <DeleteItemBtn itemId={itemId} sectionId={sectionId} />
             </li>
           ))}
           <AddItemBtn dispatch={dispatch} sectionId={sectionId} />

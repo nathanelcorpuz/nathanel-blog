@@ -7,6 +7,7 @@ import editParagraph from "../utils/admin/new-article-reducer/editParagraph";
 import editHeading3 from "../utils/admin/new-article-reducer/editHeading3";
 import deleteSection from "../utils/admin/new-article-reducer/deleteSection";
 import deleteParagraph from "../utils/admin/new-article-reducer/deleteParagraph";
+import deleteItem from "../utils/admin/new-article-reducer/deleteItem";
 
 const initialState = {
   image: {
@@ -97,6 +98,9 @@ function reducer(state, action) {
     }
     case "delete_paragraph": {
       return deleteParagraph(state, action);
+    }
+    case "delete_item": {
+      return deleteItem(state, action);
     }
   }
   return state;
