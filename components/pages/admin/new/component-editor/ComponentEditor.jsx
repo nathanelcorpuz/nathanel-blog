@@ -92,6 +92,7 @@ export default function ComponentEditor({
               dispatch({
                 type: "edit_paragraph",
                 sectionId,
+                itemId,
                 newValue: value || id,
                 paragraph: {
                   level: itemId ? "item" : "section",

@@ -7,19 +7,20 @@ import AddItemBtn from "@/components/common/admin/AddItemBtn";
 
 export default function NewSection({ section, type }) {
   const { dispatch } = useContext(NewArticleContext);
+  const { id: sectionId } = section;
   return (
-    <div key={section.id}>
+    <div key={sectionId}>
       <ComponentEditor
         id="heading2"
         state={section.content.heading}
-        sectionId={section.id}
+        sectionId={sectionId}
       />
       {section.content.paragraphs.map(({ text, id: paragraphId }) => (
         <ComponentEditor
           key={paragraphId}
           id="paragraph"
           state={text}
-          sectionId={section.id}
+          sectionId={sectionId}
           paragraphId={paragraphId}
         />
       ))}
@@ -29,7 +30,7 @@ export default function NewSection({ section, type }) {
           dispatch({
             type: "add_paragraph",
             location: "heading2",
-            sectionId: section.id,
+            sectionId,
             newParagraph: { id: uuidv4(), text: "paragraph" },
           })
         }
@@ -43,15 +44,16 @@ export default function NewSection({ section, type }) {
               <ComponentEditor
                 id="heading3"
                 state={heading}
-                sectionId={section.id}
+                sectionId={sectionId}
               />
               {paragraphs.map(({ text, id: paragraphId }) => (
                 <ComponentEditor
                   key={paragraphId}
                   id="paragraph"
                   state={text}
-                  sectionId={section.id}
-                  level="item"
+                  sectionId={sectionId}
+                  itemId={itemId}
+                  paragraphId={paragraphId}
                 />
               ))}
               <button
@@ -60,7 +62,7 @@ export default function NewSection({ section, type }) {
                   dispatch({
                     type: "add_paragraph",
                     location: "heading3",
-                    sectionId: section.id,
+                    sectionId,
                     itemId,
                     newParagraph: { id: uuidv4(), text: "paragraph" },
                   })
@@ -70,7 +72,7 @@ export default function NewSection({ section, type }) {
               </button>
             </li>
           ))}
-          <AddItemBtn dispatch={dispatch} sectionId={section.id} />
+          <AddItemBtn dispatch={dispatch} sectionId={sectionId} />
         </ol>
       )}
       {type === "bulleted" && (
@@ -80,15 +82,16 @@ export default function NewSection({ section, type }) {
               <ComponentEditor
                 id="heading3"
                 state={heading}
-                sectionId={section.id}
+                sectionId={sectionId}
               />
               {paragraphs.map(({ text, id: paragraphId }) => (
                 <ComponentEditor
-                  key={id}
+                  key={paragraphId}
                   id="paragraph"
                   state={text}
-                  sectionId={section.id}
-                  itemId={paragraphId}
+                  sectionId={sectionId}
+                  itemId={itemId}
+                  paragraphId={paragraphId}
                 />
               ))}
               <button
@@ -97,7 +100,7 @@ export default function NewSection({ section, type }) {
                   dispatch({
                     type: "add_paragraph",
                     location: "heading3",
-                    sectionId: section.id,
+                    sectionId,
                     itemId,
                     newParagraph: { id: uuidv4(), text: "paragraph" },
                   })
@@ -107,7 +110,7 @@ export default function NewSection({ section, type }) {
               </button>
             </li>
           ))}
-          <AddItemBtn dispatch={dispatch} sectionId={section.id} />
+          <AddItemBtn dispatch={dispatch} sectionId={sectionId} />
         </ul>
       )}
     </div>
