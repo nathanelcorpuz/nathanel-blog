@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import { useReducer } from "react";
 import findNestedObj from "../utils/findNestedObj";
-import addParagraph from "../utils/addParagraph";
+import addParagraph from "../utils/new-article-reducer/addParagraph";
+import addItem from "../utils/new-article-reducer/addItem";
+import addSection from "../utils/new-article-reducer/addSection";
 
 const initialState = {
   image: {
@@ -60,78 +62,13 @@ function reducer(state, action) {
       };
     }
     case "add_section": {
-      const sectionType = action.sectionType;
-      const stateClone = JSON.parse(JSON.stringify(state));
-      if (sectionType === "standard") {
-        stateClone.sections.push({
-          id: uuidv4(),
-          type: sectionType,
-          content: {
-            heading: "heading2",
-            paragraphs: [
-              {
-                id: uuidv4(),
-                text: "paragraph",
-              },
-            ],
-          },
-        });
-        return {
-          ...stateClone,
-        };
-      }
-
-      if (sectionType === "numbered" || sectionType === "bulleted") {
-        stateClone.sections.push({
-          id: uuidv4(),
-          type: sectionType,
-          content: {
-            heading: "heading2",
-            paragraphs: [
-              {
-                id: uuidv4(),
-                text: "paragraph",
-              },
-            ],
-            items: [
-              {
-                id: uuidv4(),
-                heading: "heading3",
-                paragraphs: [
-                  {
-                    id: uuidv4(),
-                    text: "paragraph",
-                  },
-                ],
-              },
-            ],
-          },
-        });
-        return {
-          ...stateClone,
-        };
-      }
-      throw new Error("Unknown section type...");
+      return addSection(state, action);
     }
     case "add_paragraph": {
-      const stateClone = JSON.parse(JSON.stringify(state));
-      return addParagraph(stateClone, action);
+      return addParagraph(state, action);
     }
     case "add_item": {
-      // wip
-      const stateClone = JSON.parse(JSON.stringify(state));
-      const targetSection = stateClone.sections.find(
-        (section) => section.id === action.sectionId
-      );
-
-      targetSection.content.items.push(action.newItem);
-
-      const targetSectionIndex = stateClone.sections.findIndex(
-        (section) => section.id === targetSection.id
-      );
-
-      stateClone.sections.splice(targetSectionIndex, 1, targetSection);
-      return { ...stateClone };
+      return addItem(state, action);
     }
     case "add_tags": {
       const stateClone = JSON.parse(JSON.stringify(state));
