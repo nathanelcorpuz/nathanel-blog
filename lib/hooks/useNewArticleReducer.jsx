@@ -90,6 +90,17 @@ function reducer(state, action) {
         ...stateClone,
       };
     }
+    case "delete_section": {
+      const stateClone = JSON.parse(JSON.stringify(state));
+      const updatedSections = stateClone.sections.filter(
+        (section) => section.id !== action.sectionId
+      );
+
+      return {
+        ...stateClone,
+        sections: [...updatedSections],
+      };
+    }
   }
   return state;
 }
