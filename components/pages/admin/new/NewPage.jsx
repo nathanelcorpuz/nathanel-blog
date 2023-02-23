@@ -9,12 +9,14 @@ export default function NewPage() {
   const { state } = useContext(NewArticleContext);
   const modalState = useState(false);
 
+  console.log(state);
+
   return (
     <div className={styles.new_page}>
-      <ComponentEditor id="heading1" />
-      <ComponentEditor id="author" />
-      <ComponentEditor id="date" />
-      <ComponentEditor id="paragraph" />
+      <ComponentEditor id="heading" state={state.headline.heading} />
+      <ComponentEditor id="author" state={state.author.name} />
+      <ComponentEditor id="date" state={state.dates.published} />
+      <ComponentEditor id="subheading" state={state.headline.subheading} />
       {state.sections.map((section) => {
         if (section.type === "bulleted") {
           return (
@@ -32,7 +34,7 @@ export default function NewPage() {
       })}
       <NewSectionModal modalState={modalState} />
       <h2>Summary</h2>
-      <ComponentEditor id="paragraph" />
+      <ComponentEditor id="summary" state={state.summary} />
     </div>
   );
 }

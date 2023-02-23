@@ -13,19 +13,18 @@ const initialState = {
     ownerUrl: "",
   },
   author: {
-    name: "",
+    name: "author",
     profileUrl: "",
   },
   dates: {
-    published: "",
+    published: "January 1, 2023",
   },
-
   headline: {
-    heading: "",
-    subheading: "",
+    heading: "Heading",
+    subheading: "Subheading",
   },
   sections: [],
-  summary: "",
+  summary: "Paragraph",
   tags: [],
 };
 
@@ -35,6 +34,7 @@ function reducer(state, action) {
       return {
         ...state,
         headline: {
+          ...state.headline,
           [action.headline.element]: action.newValue,
         },
       };
