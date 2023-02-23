@@ -2,6 +2,7 @@ import { NewArticleContext } from "@/contexts/NewArticleContext";
 import { useContext, useState } from "react";
 import ComponentEditor from "./component-editor/ComponentEditor";
 import NewSectionModal from "./new-section-modal/NewSectionModal";
+import NewSection from "./new-section/NewSection";
 import styles from "./NewPage.module.css";
 
 export default function NewPage() {
@@ -17,98 +18,16 @@ export default function NewPage() {
       {state.sections.map((section) => {
         if (section.type === "bulleted") {
           return (
-            <div key={section.id}>
-              <ComponentEditor
-                id="heading2"
-                retrievedValue={section.content.heading}
-                stateId={section.id}
-              />
-
-              {section.content.paragraphs.map(({ text, id }) => (
-                <ComponentEditor
-                  key={id}
-                  id="paragraph"
-                  retrievedValue={text}
-                  stateId={id}
-                />
-              ))}
-              <ul>
-                {section.content.items.map(({ heading, paragraphs, id }) => (
-                  <li key={id}>
-                    <ComponentEditor
-                      id="heading3"
-                      retrievedValue={heading}
-                      stateId={id}
-                    />
-                    {paragraphs.map(({ text, id }) => (
-                      <ComponentEditor
-                        key={id}
-                        id="paragraph"
-                        retrievedValue={text}
-                        stateId={id}
-                      />
-                    ))}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <NewSection key={section.id} type="bulleted" section={section} />
           );
         }
         if (section.type === "numbered") {
           return (
-            <div key={section.id}>
-              <ComponentEditor
-                id="heading2"
-                retrievedValue={section.content.heading}
-                stateId={section.id}
-              />
-
-              {section.content.paragraphs.map(({ text, id }) => (
-                <ComponentEditor
-                  key={id}
-                  id="paragraph"
-                  retrievedValue={text}
-                  stateId={id}
-                />
-              ))}
-              <ol>
-                {section.content.items.map(({ heading, paragraphs, id }) => (
-                  <li key={id}>
-                    <ComponentEditor
-                      id="heading3"
-                      retrievedValue={heading}
-                      stateId={id}
-                    />
-                    {paragraphs.map(({ text, id }) => (
-                      <ComponentEditor
-                        key={id}
-                        id="paragraph"
-                        retrievedValue={text}
-                        stateId={id}
-                      />
-                    ))}
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <NewSection key={section.id} type="numbered" section={section} />
           );
         }
         return (
-          <div key={section.id}>
-            <ComponentEditor
-              id="heading2"
-              retrievedValue={section.content.heading}
-              stateId={section.id}
-            />
-            {section.content.paragraphs.map(({ text, id }) => (
-              <ComponentEditor
-                key={id}
-                id="paragraph"
-                retrievedValue={text}
-                stateId={id}
-              />
-            ))}
-          </div>
+          <NewSection key={section.id} type="standard" section={section} />
         );
       })}
       <NewSectionModal modalState={modalState} />
