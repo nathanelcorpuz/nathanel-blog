@@ -2,46 +2,13 @@ import styles from "./ComponentEditor.module.css";
 import { useContext, useState } from "react";
 import { NewArticleContext } from "@/contexts/NewArticleContext";
 
-export default function ComponentEditor({
-  id = "",
-  retrievedValue = "",
-  // test below
-  state = "",
-}) {
+export default function ComponentEditor({ id = "", state = "" }) {
   const { dispatch } = useContext(NewArticleContext);
   const [editing, setEditing] = useState(false);
-
-  // orig below
   const [value, setValue] = useState(state);
 
   let articleElement;
 
-  // orig below
-  // if (id === "heading") {
-  //   articleElement = <h1>{value}</h1>;
-  // }
-
-  // if (id === "heading2") {
-  //   articleElement = <h2>{value}</h2>;
-  // }
-
-  // if (id === "heading3") {
-  //   articleElement = <h3>{value}</h3>;
-  // }
-
-  // if (id === "heading4") {
-  //   articleElement = <h4>{value}</h4>;
-  // }
-
-  // if (id === "author" || id === "date") {
-  //   articleElement = <small> {value}</small>;
-  // }
-
-  // if (id === "paragraph" || id === "subheading" || id === "summary") {
-  //   articleElement = <p>{value}</p>;
-  // }
-
-  // test below
   if (id === "heading") {
     articleElement = <h1>{state}</h1>;
   }
@@ -88,9 +55,32 @@ export default function ComponentEditor({
               return;
             }
             // for author
+            if (id === "author") {
+              console.log("author input change");
+              dispatch({
+                type: "edit_author",
+                author: { element: "name" },
+                newValue: value || id,
+              });
+            }
             // for dates
+            if (id === "date") {
+              console.log("date input change");
+              dispatch({
+                type: "edit_dates",
+                dates: { element: "published" },
+                newValue: value || id,
+              });
+            }
             // for sections
             // for summary
+            if (id === "summary") {
+              console.log("summary input change");
+              dispatch({
+                type: "edit_summary",
+                newValue: value,
+              });
+            }
           }}
         >
           <label
@@ -107,7 +97,7 @@ export default function ComponentEditor({
           />
         </form>
       ) : (
-        articleElement || retrievedValue || id
+        articleElement
       )}
     </div>
   );

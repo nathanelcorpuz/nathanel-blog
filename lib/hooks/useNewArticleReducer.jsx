@@ -18,6 +18,7 @@ const initialState = {
   },
   dates: {
     published: "January 1, 2023",
+    edited: "",
   },
   headline: {
     heading: "Heading",
@@ -43,6 +44,7 @@ function reducer(state, action) {
       return {
         ...state,
         author: {
+          ...state.author,
           [action.author.element]: action.newValue,
         },
       };
@@ -51,6 +53,7 @@ function reducer(state, action) {
       return {
         ...state,
         dates: {
+          ...state.dates,
           [action.dates.element]: action.newValue,
         },
       };

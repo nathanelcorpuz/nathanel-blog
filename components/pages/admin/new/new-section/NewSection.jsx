@@ -11,7 +11,7 @@ export default function NewSection({ section, type }) {
     <div key={section.id}>
       <ComponentEditor
         id="heading2"
-        retrievedValue={section.content.heading}
+        value={section.content.heading}
         stateId={section.id}
       />
       {section.content.paragraphs.map(({ text, id }) => (
