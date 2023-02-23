@@ -65,6 +65,27 @@ export default function NewSection({ section, type }) {
               >
                 Add paragraph
               </button>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: "add_item",
+                    sectionId: section.id,
+                    listId: id,
+                    newItem: {
+                      id: uuidv4(),
+                      heading: "heading3",
+                      paragraphs: [
+                        {
+                          id: uuidv4(),
+                          text: "paragraph",
+                        },
+                      ],
+                    },
+                  });
+                }}
+              >
+                Add item
+              </button>
             </li>
           ))}
         </ol>
@@ -99,6 +120,27 @@ export default function NewSection({ section, type }) {
                 }
               >
                 Add paragraph
+              </button>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: "add_item",
+                    sectionId: section.id,
+                    listId: id,
+                    newItem: {
+                      id: uuidv4(),
+                      heading: "heading3",
+                      paragraphs: [
+                        {
+                          id: uuidv4(),
+                          text: "paragraph",
+                        },
+                      ],
+                    },
+                  });
+                }}
+              >
+                Add item
               </button>
             </li>
           ))}

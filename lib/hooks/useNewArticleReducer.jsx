@@ -67,11 +67,11 @@ function reducer(state, action) {
           id: uuidv4(),
           type: sectionType,
           content: {
-            heading: "Sample heading",
+            heading: "heading2",
             paragraphs: [
               {
                 id: uuidv4(),
-                text: "Sample paragraph",
+                text: "paragraph",
               },
             ],
           },
@@ -86,21 +86,21 @@ function reducer(state, action) {
           id: uuidv4(),
           type: sectionType,
           content: {
-            heading: "Sample heading",
+            heading: "heading2",
             paragraphs: [
               {
                 id: uuidv4(),
-                text: "Sample paragraph",
+                text: "paragraph",
               },
             ],
             items: [
               {
                 id: uuidv4(),
-                heading: "Sample item 1",
+                heading: "heading3",
                 paragraphs: [
                   {
                     id: uuidv4(),
-                    text: "Sample item 1 paragraph 1",
+                    text: "paragraph",
                   },
                 ],
               },
@@ -117,7 +117,21 @@ function reducer(state, action) {
       const stateClone = JSON.parse(JSON.stringify(state));
       return addParagraph(stateClone, action);
     }
-    case "add_items": {
+    case "add_item": {
+      // wip
+      const stateClone = JSON.parse(JSON.stringify(state));
+      const targetSection = stateClone.sections.find(
+        (section) => section.id === action.sectionId
+      );
+
+      targetSection.content.items.push(action.newItem);
+
+      const targetSectionIndex = stateClone.sections.findIndex(
+        (section) => section.id === targetSection.id
+      );
+
+      stateClone.sections.splice(targetSectionIndex, 1, targetSection);
+      return { ...stateClone };
     }
     case "add_tags": {
       const stateClone = JSON.parse(JSON.stringify(state));

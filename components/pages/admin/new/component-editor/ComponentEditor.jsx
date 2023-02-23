@@ -28,11 +28,11 @@ export default function ComponentEditor({
   }
 
   if (id === "author" || id === "date") {
-    articleElement = <small>{value}</small>;
+    articleElement = <small> {value}</small>;
   }
 
   if (id === "paragraph") {
-    articleElement = <p>{value}</p>;
+    articleElement = <p> {value}</p>;
   }
 
   return (

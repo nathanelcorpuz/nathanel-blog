@@ -1,25 +1,5 @@
 import { Schema, model, models } from "mongoose";
 
-const paragraphSchema = new Schema({
-  text: String,
-});
-
-const itemSchema = new Schema({
-  heading: { type: String, required: true },
-  paragraphs: [paragraphSchema],
-});
-
-const contentSchema = new Schema({
-  heading: { type: String, required: true },
-  paragraphs: [paragraphSchema],
-  items: [itemSchema],
-});
-
-const sectionSchema = new Schema({
-  type: { type: String, required: true },
-  content: contentSchema,
-});
-
 const headlineSchema = new Schema({
   heading: { type: String, required: true },
   subheading: { type: String, required: true },
@@ -40,6 +20,26 @@ const imageSchema = new Schema({
 const authorSchema = new Schema({
   name: { type: String, required: true },
   profileUrl: String,
+});
+
+const paragraphSchema = new Schema({
+  text: String,
+});
+
+const itemSchema = new Schema({
+  heading: { type: String, required: true },
+  paragraphs: [paragraphSchema],
+});
+
+const contentSchema = new Schema({
+  heading: { type: String, required: true },
+  paragraphs: [paragraphSchema],
+  items: [itemSchema],
+});
+
+const sectionSchema = new Schema({
+  type: { type: String, required: true },
+  content: contentSchema,
 });
 
 const articleSchema = new Schema({
