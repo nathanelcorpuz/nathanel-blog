@@ -1,10 +1,10 @@
 import { useReducer } from "react";
-import findNestedObj from "../utils/findNestedObj";
 import addParagraph from "../utils/new-article-reducer/addParagraph";
 import addItem from "../utils/new-article-reducer/addItem";
 import addSection from "../utils/new-article-reducer/addSection";
 import editHeading2 from "../utils/new-article-reducer/editHeading2";
 import editParagraph from "../utils/new-article-reducer/editParagraph";
+import editHeading3 from "../utils/new-article-reducer/editHeading3";
 
 const initialState = {
   image: {
@@ -68,8 +68,10 @@ function reducer(state, action) {
     case "edit_heading2": {
       return editHeading2(state, action);
     }
+    case "edit_heading3": {
+      return editHeading3(state, action);
+    }
     case "edit_paragraph": {
-      // wip
       return editParagraph(state, action);
     }
     case "add_section": {

@@ -75,7 +75,7 @@ export default function ComponentEditor({
                 newValue: value || id,
               });
             }
-            // for sections
+            // for sections **
             // section heading2
             if (id === "heading2") {
               dispatch({
@@ -100,7 +100,18 @@ export default function ComponentEditor({
                 },
               });
             }
-            // section item heading2
+            // section item heading3
+            if (id === "heading3") {
+              console.log("heading3");
+              console.log("*** value");
+              console.log(value);
+              dispatch({
+                type: "edit_heading3",
+                sectionId,
+                itemId,
+                newValue: value || id,
+              });
+            }
             // section item paragraph
             // for summary
             if (id === "summary") {

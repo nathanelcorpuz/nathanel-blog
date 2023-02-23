@@ -45,6 +45,7 @@ export default function NewSection({ section, type }) {
                 id="heading3"
                 state={heading}
                 sectionId={sectionId}
+                itemId={itemId}
               />
               {paragraphs.map(({ text, id: paragraphId }) => (
                 <ComponentEditor
@@ -83,6 +84,7 @@ export default function NewSection({ section, type }) {
                 id="heading3"
                 state={heading}
                 sectionId={sectionId}
+                itemId={itemId}
               />
               {paragraphs.map(({ text, id: paragraphId }) => (
                 <ComponentEditor
