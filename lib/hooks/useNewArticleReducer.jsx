@@ -1,9 +1,10 @@
-import { v4 as uuidv4 } from "uuid";
 import { useReducer } from "react";
 import findNestedObj from "../utils/findNestedObj";
 import addParagraph from "../utils/new-article-reducer/addParagraph";
 import addItem from "../utils/new-article-reducer/addItem";
 import addSection from "../utils/new-article-reducer/addSection";
+import editHeading2 from "../utils/new-article-reducer/editHeading2";
+import editParagraph from "../utils/new-article-reducer/editParagraph";
 
 const initialState = {
   image: {
@@ -65,26 +66,11 @@ function reducer(state, action) {
       };
     }
     case "edit_heading2": {
-      const stateClone = JSON.parse(JSON.stringify(state));
-      const targetSection = stateClone.sections.find(
-        (section) => section.id === action.sectionId
-      );
-
-      const targetSectionIndex = stateClone.sections.findIndex(
-        (section) => section.id === targetSection.id
-      );
-
-      targetSection.content.heading = action.newValue;
-
-      console.log("*** targetSection");
-      console.log(targetSection);
-
-      stateClone.sections.splice(targetSectionIndex, 1, targetSection);
-
-      console.log("*** stateClone");
-      console.log(stateClone);
-
-      return { ...stateClone };
+      return editHeading2(state, action);
+    }
+    case "edit_paragraph": {
+      // wip
+      return editParagraph(state, action);
     }
     case "add_section": {
       return addSection(state, action);

@@ -2,7 +2,13 @@ import styles from "./ComponentEditor.module.css";
 import { useContext, useState } from "react";
 import { NewArticleContext } from "@/contexts/NewArticleContext";
 
-export default function ComponentEditor({ id = "", state = "", stateId }) {
+export default function ComponentEditor({
+  id = "",
+  state = "",
+  sectionId = "",
+  paragraphId = "",
+  itemId = "",
+}) {
   const { dispatch } = useContext(NewArticleContext);
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(state);
@@ -46,7 +52,6 @@ export default function ComponentEditor({ id = "", state = "", stateId }) {
             // handle all state changes on "enter" key
             // for headline
             if (id === "heading" || id === "subheading") {
-              console.log("heading or subheading input change");
               dispatch({
                 type: "edit_headline",
                 headline: { element: id },
@@ -56,7 +61,6 @@ export default function ComponentEditor({ id = "", state = "", stateId }) {
             }
             // for author
             if (id === "author") {
-              console.log("author input change");
               dispatch({
                 type: "edit_author",
                 author: { element: "name" },
@@ -65,7 +69,6 @@ export default function ComponentEditor({ id = "", state = "", stateId }) {
             }
             // for dates
             if (id === "date") {
-              console.log("date input change");
               dispatch({
                 type: "edit_dates",
                 dates: { element: "published" },
@@ -75,16 +78,27 @@ export default function ComponentEditor({ id = "", state = "", stateId }) {
             // for sections
             // section heading2
             if (id === "heading2") {
-              console.log("heading2");
-              console.log("*** value");
-              console.log(value);
               dispatch({
                 type: "edit_heading2",
-                sectionId: stateId,
+                sectionId,
                 newValue: value || id,
               });
             }
             // section paragraph
+            if (id === "paragraph") {
+              console.log("paragraph");
+              console.log("*** value");
+              console.log(value);
+              dispatch({
+                type: "edit_paragraph",
+                sectionId,
+                newValue: value || id,
+                paragraph: {
+                  level: itemId ? "item" : "section",
+                  id: paragraphId,
+                },
+              });
+            }
             // section item heading2
             // section item paragraph
             // for summary
