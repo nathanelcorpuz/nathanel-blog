@@ -3,6 +3,7 @@ import styles from "./NewSection.module.css";
 import ComponentEditor from "../component-editor/ComponentEditor";
 import { useContext } from "react";
 import { NewArticleContext } from "@/contexts/NewArticleContext";
+import AddItemBtn from "@/components/common/admin/AddItemBtn";
 
 export default function NewSection({ section, type }) {
   const { dispatch } = useContext(NewArticleContext);
@@ -28,7 +29,7 @@ export default function NewSection({ section, type }) {
             type: "add_paragraph",
             location: "heading2",
             sectionId: section.id,
-            newParagraph: { id: uuidv4(), text: "Sample paragraph" },
+            newParagraph: { id: uuidv4(), text: "paragraph" },
           })
         }
       >
@@ -59,35 +60,15 @@ export default function NewSection({ section, type }) {
                     location: "heading3",
                     sectionId: section.id,
                     itemId: id,
-                    newParagraph: { id: uuidv4(), text: "Sample paragraph" },
+                    newParagraph: { id: uuidv4(), text: "paragraph" },
                   })
                 }
               >
                 Add paragraph
               </button>
-              <button
-                onClick={() => {
-                  dispatch({
-                    type: "add_item",
-                    sectionId: section.id,
-                    listId: id,
-                    newItem: {
-                      id: uuidv4(),
-                      heading: "heading3",
-                      paragraphs: [
-                        {
-                          id: uuidv4(),
-                          text: "paragraph",
-                        },
-                      ],
-                    },
-                  });
-                }}
-              >
-                Add item
-              </button>
             </li>
           ))}
+          <AddItemBtn dispatch={dispatch} sectionId={section.id} />
         </ol>
       )}
       {type === "bulleted" && (
@@ -115,35 +96,15 @@ export default function NewSection({ section, type }) {
                     location: "heading3",
                     sectionId: section.id,
                     itemId: id,
-                    newParagraph: { id: uuidv4(), text: "Sample paragraph" },
+                    newParagraph: { id: uuidv4(), text: "paragraph" },
                   })
                 }
               >
                 Add paragraph
               </button>
-              <button
-                onClick={() => {
-                  dispatch({
-                    type: "add_item",
-                    sectionId: section.id,
-                    listId: id,
-                    newItem: {
-                      id: uuidv4(),
-                      heading: "heading3",
-                      paragraphs: [
-                        {
-                          id: uuidv4(),
-                          text: "paragraph",
-                        },
-                      ],
-                    },
-                  });
-                }}
-              >
-                Add item
-              </button>
             </li>
           ))}
+          <AddItemBtn dispatch={dispatch} sectionId={section.id} />
         </ul>
       )}
     </div>
