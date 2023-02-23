@@ -64,6 +64,28 @@ function reducer(state, action) {
         summary: action.newValue,
       };
     }
+    case "edit_heading2": {
+      const stateClone = JSON.parse(JSON.stringify(state));
+      const targetSection = stateClone.sections.find(
+        (section) => section.id === action.sectionId
+      );
+
+      const targetSectionIndex = stateClone.sections.findIndex(
+        (section) => section.id === targetSection.id
+      );
+
+      targetSection.content.heading = action.newValue;
+
+      console.log("*** targetSection");
+      console.log(targetSection);
+
+      stateClone.sections.splice(targetSectionIndex, 1, targetSection);
+
+      console.log("*** stateClone");
+      console.log(stateClone);
+
+      return { ...stateClone };
+    }
     case "add_section": {
       return addSection(state, action);
     }

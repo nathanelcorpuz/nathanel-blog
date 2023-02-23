@@ -2,7 +2,7 @@ import styles from "./ComponentEditor.module.css";
 import { useContext, useState } from "react";
 import { NewArticleContext } from "@/contexts/NewArticleContext";
 
-export default function ComponentEditor({ id = "", state = "" }) {
+export default function ComponentEditor({ id = "", state = "", stateId }) {
   const { dispatch } = useContext(NewArticleContext);
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(state);
@@ -73,6 +73,20 @@ export default function ComponentEditor({ id = "", state = "" }) {
               });
             }
             // for sections
+            // section heading2
+            if (id === "heading2") {
+              console.log("heading2");
+              console.log("*** value");
+              console.log(value);
+              dispatch({
+                type: "edit_heading2",
+                sectionId: stateId,
+                newValue: value || id,
+              });
+            }
+            // section paragraph
+            // section item heading2
+            // section item paragraph
             // for summary
             if (id === "summary") {
               console.log("summary input change");

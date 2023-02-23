@@ -9,18 +9,15 @@ export default function NewSection({ section, type }) {
   const { dispatch } = useContext(NewArticleContext);
   return (
     <div key={section.id}>
+      {/* wip */}
       <ComponentEditor
         id="heading2"
-        value={section.content.heading}
+        state={section.content.heading}
         stateId={section.id}
       />
+      {/* wip end */}
       {section.content.paragraphs.map(({ text, id }) => (
-        <ComponentEditor
-          key={id}
-          id="paragraph"
-          retrievedValue={text}
-          stateId={id}
-        />
+        <ComponentEditor key={id} id="paragraph" state={text} stateId={id} />
       ))}
       <button
         className={styles.add_paragraph_btn}
@@ -39,16 +36,12 @@ export default function NewSection({ section, type }) {
         <ol>
           {section.content.items.map(({ heading, paragraphs, id }) => (
             <li key={id}>
-              <ComponentEditor
-                id="heading3"
-                retrievedValue={heading}
-                stateId={id}
-              />
+              <ComponentEditor id="heading3" state={heading} stateId={id} />
               {paragraphs.map(({ text, id }) => (
                 <ComponentEditor
                   key={id}
                   id="paragraph"
-                  retrievedValue={text}
+                  state={text}
                   stateId={id}
                 />
               ))}
@@ -75,16 +68,12 @@ export default function NewSection({ section, type }) {
         <ul>
           {section.content.items.map(({ heading, paragraphs, id }) => (
             <li key={id}>
-              <ComponentEditor
-                id="heading3"
-                retrievedValue={heading}
-                stateId={id}
-              />
+              <ComponentEditor id="heading3" state={heading} stateId={id} />
               {paragraphs.map(({ text, id }) => (
                 <ComponentEditor
                   key={id}
                   id="paragraph"
-                  retrievedValue={text}
+                  state={text}
                   stateId={id}
                 />
               ))}
