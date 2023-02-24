@@ -1,4 +1,13 @@
-.div_not_editing:hover {
+.div {
+  padding: 10px;
+}
+
+.div:hover {
+  background: #ececec;
+  cursor: pointer;
+}
+
+/* .div_not_editing:hover {
   background: #ececec;
   cursor: pointer;
 }
@@ -20,4 +29,4 @@
 
 .div_editing form input {
   width: 100%;
-}
+} */

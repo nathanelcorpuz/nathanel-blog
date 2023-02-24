@@ -3,9 +3,8 @@ import styles from "./Aside.module.css";
 export default function Aside() {
   return (
     <aside className={styles.aside}>
-      <h1>Article</h1>
-      <select>
-        <option>Article 1</option>
+      <select defaultValue="empty">
+        <option value="empty">Select an article</option>
         <option>Article 2</option>
         <option>Article 3</option>
       </select>
